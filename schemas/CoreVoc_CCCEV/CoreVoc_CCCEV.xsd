@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema 
+targetNamespace="https://data.europa.eu/m8g/xsd" 
+xmlns="https://data.europa.eu/m8g/xsd" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:dcterms="http://purl.org/dc/elements/1.1/"
+xmlns:sawsdl="http://www.w3.org/ns/sawsdl"
+elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">    
+
+    <xs:include schemaLocation="../CoreVoc_Common/CoreVoc_CommonTypes.xsd"/>
+    <xs:include schemaLocation="../CoreVoc_Aggregat/CoreVoc_Aggregat.xsd"/>
+    
+<!-- ===== Meta Data==== ================================= -->
+    <xs:annotation>
+        <xs:documentation>Core Criterion and Core Evidence Vocabulary (CCCEV)</xs:documentation>
+        <xs:appinfo>
+            <dcterms:title>Core Criterion and Core Evidence Vocabulary (CCCEV)</dcterms:title>
+            <dcterms:description>This XML schema describes the Core Criterion and Core Evidence Vocabulary (CCCEV) as part of SEMIC Core Vocabularies .</dcterms:description>
+            <dcterms:creator>Emidio Stani (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Ine Weyts (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Wolfgang Keber (DIaLOGIKa GmbH)</dcterms:creator> 
+            <dcterms:contributor>Pavlina Fragkou (European Commission)</dcterms:contributor>
+            <dcterms:contributor>Anastasia Sofou (Trasys International)</dcterms:contributor>
+            <dcterms:contributor>Kristina Hector (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:contributor>Patrick Plewka (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:licence>Licensed under the CC BY 4.0</dcterms:licence>
+            <dcterms:rightsHolder>European Union</dcterms:rightsHolder>
+            <dcterms:copyright>Copyright (C) European Union, 2024</dcterms:copyright>
+            <dcterms:status>In progress</dcterms:status>
+            <dcterms:created>2024-10-15</dcterms:created>
+        </xs:appinfo>
+    </xs:annotation>
+    
+<!-- Core Criterion and Core Evidence Vocabulary -->
+
+
+<!-- ConstraintType -->    
+    
+    <xs:complexType name="ConstraintType" sawsdl:modelReference="http://data.europa.eu/m8g/Constraint">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Limitation applied to an Information Concept.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="RequirementType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Condition or prerequisite that is to be proven by Evidence.
+                    </xs:documentation>
+                </xs:annotation>
+            
+                <xs:sequence>
+                    <xs:element ref="Constrains" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/constrains">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Information Concept about which a Constraint expresses a limitation.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="Constrains" type="InformationConceptType"/>
+
+
+<!-- CriterionType -->    
+
+    <xs:complexType name="CriterionType" sawsdl:modelReference="http://data.europa.eu/m8g/Criterion">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Condition for evaluation or assessment.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="RequirementType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Condition or prerequisite that is to be proven by Evidence.
+                    </xs:documentation>
+                </xs:annotation>
+            
+                <xs:sequence>
+                    <xs:element ref="Bias" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/bias">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Parameter used to adjust the evaluation of the Criterion.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Weight" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/weight">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Relative importance of the Criterion.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="WeightingConsiderationDescription" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/weightingConsiderationDescription">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Explanation of how the weighting of a Criterion is to be used.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="WeightingType" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/weightingType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Indication of how the weight should be interpreted in a complex evaluation expression, e.g. as a percentage in an evaluation expression.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="Bias" type="xs:decimal"/> 
+    <xs:element name="Weight" type="xs:decimal"/> 
+    <xs:element name="WeightingConsiderationDescription" type="xs:string"/>
+    <xs:element name="WeightingType" type="CodeType"/> 
+
+    
+<!-- EvidenceType -->    
+
+    <xs:complexType name="EvidenceType" sawsdl:modelReference="http://data.europa.eu/m8g/Evidence">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Proof that a Requirement is met.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="ConfidentialityLevelType" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/confidentialityLevelType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Security classification assigned to an Evidence e.g. classified, sensitive, public.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsAbout" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/subject">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Agent that is the subject in the provided Evidence.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsConformantTo" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/conformsTo">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Evidence Type that specifies characteristics of the Evidence.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsCreatedBy" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/creator">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Agent that produces the Evidence.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsIssuedBy" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/publisher">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Agent legally responsible for the Evidence, e.g. a legal authority.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsProvidedBy" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/isProvidedBy">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Agent that transmits the Evidence.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="SupportsConcept" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/supportsConcept">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Information Concept providing facts found/inferred from the Evidence.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="SupportsRequirement" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/supportsRequirement">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Requirement for which the Evidence provides proof.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="SupportsValue" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/supportsValue">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Supported Value that the Evidence contains.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="ValidityPeriod" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/validityPeriod">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Period of Time during which the Evidence holds true or has force.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="ConfidentialityLevelType" type="CodeType"/>
+    <xs:element name="IsAbout" type="AgentType"/> 
+    <xs:element name="IsConformantTo" type="EvidenceTypeType"/>
+    <xs:element name="IsCreatedBy" type="AgentType"/>
+    <xs:element name="IsIssuedBy" type="AgentType"/> 
+    <xs:element name="IsProvidedBy" type="AgentType"/> 
+    <xs:element name="SupportsConcept" type="InformationConceptType"/> 
+    <xs:element name="SupportsRequirement" type="RequirementType"/> 
+    <xs:element name="SupportsValue" type="SupportedValueType"/> 
+    <xs:element name="ValidityPeriod" type="PeriodOfTimeType"/>
+
+
+<!-- EvidenceTypeListType -->    
+    
+    <xs:complexType name="EvidenceTypeListType" sawsdl:modelReference="http://data.europa.eu/m8g/EvidenceTypeList">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Group of Evidence Types for conforming to a Requirement.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Description" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/description">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Short explanation supporting the understanding of the Evidence Type List.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Identifier" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/identifier">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Unambiguous reference to the Evidence Type List.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2004/02/skos/core#prefLabel">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Name of the Evidence Type List.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="SpecifiesEvidenceType" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/specifiesEvidenceType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Evidence Type included in this Evidence Type List.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="SpecifiesEvidenceType" type="EvidenceTypeType"/>
+
+    
+<!-- EvidenceTypeType -->    
+    
+    <xs:complexType name="EvidenceTypeType" sawsdl:modelReference="http://data.europa.eu/m8g/EvidenceType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Information about the characteristics of an Evidence.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="EvidenceTypeClassification" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/evidenceTypeClassification">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Category to which the Evidence Type belongs.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Identifier" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/identifier">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Unambiguous reference to the Evidence Type.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsSpecifiedIn" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/isSpecifiedIn">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Evidence Type List in which the Evidence Type is included.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IssuingPlace" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/issuingPlace">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Refers to the Location where an Evidence Type is issued.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="ValidityPeriodConstraint" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/validityPeriodConstraint">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Temporal condition on the validity period of the Evidence Type.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="EvidenceTypeClassification" type="CodeType"/>
+    <xs:element name="IsSpecifiedIn" type="EvidenceTypeListType"/>
+    <xs:element name="IssuingPlace" type="LocationType"/> 
+    <xs:element name="ValidityPeriodConstraint" type="PeriodOfTimeType"/>
+
+
+<!-- InformationConceptType -->    
+
+    <xs:complexType name="InformationConceptType" sawsdl:modelReference="http://data.europa.eu/m8g/InformationConcept">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Piece of information that the Evidence provides or the Requirement needs.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Description" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/description">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Short explanation supporting the understanding of the Information Concept.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="ExpressionOfExpectedValue" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/expressionOfExpectedValue">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Formulation in a formal language of the expected value(s) for the Information Concept which is aligned with the concepts from the Requirements defined and must be respected by the supplied Supported Values .
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Identifier" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/identifier">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Unambiguous reference to the Information Concept.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2004/02/skos/core#prefLabel">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Name of the Information Concept.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Type" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/type">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Category to which the Information Concept belongs.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="ExpressionOfExpectedValue" type="LiteralType"/>
+ 
+ 
+<!-- InformationRequirementType -->    
+    
+    <xs:complexType name="InformationRequirementType" sawsdl:modelReference="http://data.europa.eu/m8g/InformationRequirement">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Requested data that is to be proven by Evidence.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="RequirementType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Condition or prerequisite that is to be proven by Evidence.
+                    </xs:documentation>
+                </xs:annotation>
+            
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+<!-- PeriodOfTimeType -->    
+ 
+    <xs:complexType name="PeriodOfTimeType" sawsdl:modelReference="http://www.w3.org/2006/time#ProperInterval">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A temporal entity with non-zero extent or duration.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Duration" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2006/time#hasXSDDuration">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Extent of the Period of Time.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Endtime" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2006/time#hasEnd">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Time instant at which the Period was terminated.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Starttime" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2006/time#hasBeginning">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Time instant at which the Period was initiated.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="Duration" type="xs:duration"/>
+    <xs:element name="Endtime" type="InstantType"/>
+    <xs:element name="Starttime" type="InstantType"/>
+
+
+<!-- RequirementType -->    
+
+    <xs:complexType name="RequirementType" sawsdl:modelReference="http://data.europa.eu/m8g/Requirement">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Condition or prerequisite that is to be proven by Evidence.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Description" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/description">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A short explanation supporting the understanding of the Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasConcept" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/hasConcept">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Information Concept for which a value is expected by the Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasEvidenceTypeList" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/hasEvidenceTypeList">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Evidence Type List that specifies the Evidence Types that are needed to meet the Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasQualifiedRelation" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/hasQualifiedRelation">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Described and/or categorised relation to another Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasRequirement" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/hasRequirement">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A more specific Requirement that is part of the Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasSupportingEvidence" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/hasSupportingEvidence">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Evidence that supplies information, proof or support for the Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Identifier" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/identifier">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Unambiguous reference to a Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsDerivedFrom" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/isDerivedFrom">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Reference Framework on which the Requirement is based, such as a law or regulation.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsIssuedBy" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/publisher">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Agent that has published the Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IsRequirementOf" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/isRequirementOf">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A reference between a sub-Requirement and its parent Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2004/02/skos/core#prefLabel">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Name of the Requirement.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Type" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/type">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Category to which the Requirement belongs.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="HasConcept" type="InformationConceptType"/> 
+    <xs:element name="HasEvidenceTypeList" type="EvidenceTypeListType"/> 
+    <xs:element name="HasQualifiedRelation" type="RequirementType"/> 
+    <xs:element name="HasRequirement" type="RequirementType"/> 
+    <xs:element name="HasSupportingEvidence" type="EvidenceType"/> 
+    <xs:element name="IsDerivedFrom" type="ReferenceFrameworkType"/> 
+    <xs:element name="IsRequirementOf" type="RequirementType"/> 
+ 
+
+<!-- SupportedValueType -->    
+
+    <xs:complexType name="SupportedValueType" sawsdl:modelReference="http://data.europa.eu/m8g/SupportedValue">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Value for an Information Concept that is provided by an Evidence.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="ProvidesValueFor" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/providesValueFor">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Information Concept for which the Supported Value provides a value.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Query" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/query">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Search statement that allows the value for the Information Concept to be retrieved from the Evidence data.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Value" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/value">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Value for the Information Concept that the Evidence supports.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="ProvidesValueFor" type="InformationConceptType"/> 
+    <xs:element name="Query" type="LiteralType"/> 
+    <xs:element name="Value" type="LiteralType"/> 
+ 
+ 
+
+   
+</xs:schema>   

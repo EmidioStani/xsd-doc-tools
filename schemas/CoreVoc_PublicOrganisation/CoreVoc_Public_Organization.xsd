@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema 
+targetNamespace="https://data.europa.eu/m8g/xsd" 
+xmlns="https://data.europa.eu/m8g/xsd" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:dcterms="http://purl.org/dc/elements/1.1/"
+xmlns:sawsdl="http://www.w3.org/ns/sawsdl"
+elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">    
+
+    <xs:include schemaLocation="../CoreVoc_Common/CoreVoc_CommonTypes.xsd"/>
+    <xs:include schemaLocation="../CoreVoc_Aggregat/CoreVoc_Aggregat.xsd"/>
+    
+<!-- ===== Meta Data==== ================================= -->
+    <xs:annotation>
+        <xs:documentation>Core Public Organization Vocabulary</xs:documentation>
+        <xs:appinfo>
+            <dcterms:title>Core Public Organization Vocabulary</dcterms:title>
+            <dcterms:description>This XML schema describes the Core Public Organization Vocabulary as part of SEMIC Core Vocabularies .</dcterms:description>
+            <dcterms:creator>Emidio Stani (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Ine Weyts (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Wolfgang Keber (DIaLOGIKa GmbH)</dcterms:creator>  
+            <dcterms:contributor>Pavlina Fragkou (European Commission)</dcterms:contributor>
+            <dcterms:contributor>Anastasia Sofou (Trasys International)</dcterms:contributor>
+            <dcterms:contributor>Kristina Hector (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:contributor>Patrick Plewka (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:licence>Licensed under the CC BY 4.0</dcterms:licence>
+            <dcterms:rightsHolder>European Union</dcterms:rightsHolder>
+            <dcterms:copyright>Copyright (C) European Union, 2024</dcterms:copyright>
+            <dcterms:status>In progress</dcterms:status>
+            <dcterms:created>2024-10-15</dcterms:created>
+        </xs:appinfo>
+    </xs:annotation>
+<!-- Public Organization -->
+
+
+<!-- ChangeEventType -->    
+    
+    <xs:complexType name="ChangeEventType" sawsdl:modelReference="http://www.w3.org/ns/org#ChangeEvent">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                An event which resulted in a major change to an Organization such as a merger or complete restructuring.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Description" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/description">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A textual explanation of the event.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="EndedAtTime" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/prov#endedAtTime">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The time instant when the state of the organisation update was terminated.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasFormalFramework" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/hasFormalFramework">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A piece of legislation or a policy document that prompted the change.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="OriginalOrganization" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#originalOrganization">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The Organization that existed before the change.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="ResultingOrganization" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#resultingOrganization">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        This property links a Change Event or a Foundation Event to the Organization that resulted from it.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="StartedAtTime" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/prov#startedAtTime">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The time instant when the state of the organisation update was initiated.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType> 
+
+    <xs:element name="EndedAtTime" type="xs:dateTime"/> 
+    <xs:element name="HasFormalFramework" type="ReferenceFrameworkType"/>
+    <xs:element name="OriginalOrganization" type="PublicOrganizationType"/>    
+    <xs:element name="ResultingOrganization" type="PublicOrganizationType"/>    
+    <xs:element name="StartedAtTime" type="xs:dateTime"/> 
+    
+<!-- ContactPointPOType -->   
+   
+    <xs:complexType name="ContactPointPOType" sawsdl:modelReference="http://data.europa.eu/m8g/ContactPoint">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                hier bin ich mir unsicher
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="ContactPointType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with.
+                    </xs:documentation>
+                </xs:annotation>
+            
+                <xs:sequence>
+                    <xs:element ref="OpeningHours" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/openingHours">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The time at which the Contact Point is normally available.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="AvailabilityRestrictions" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/specialOpeningHoursSpecification">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The time during which the Contact Point is not available.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>     
+ 
+    <xs:element name="OpeningHours" type="TemporalEntityType" /> 
+    <xs:element name="AvailabilityRestrictions" type="TemporalEntityType" />
+    
+    
+<!-- OrganizationType -->    
+    
+    <xs:complexType name="OrganizationType" sawsdl:modelReference="http://www.w3.org/ns/org#Organization">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="AgentType">
+                <xs:sequence>
+                    <xs:element ref="HasSubOrganization" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#hasSubOrganization">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                "Represents hierarchical containment of Organizations or OrganizationalUnits
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="SubOrganizationOf" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#subOrganizationOf">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                "Represents hierarchical containment of Organizations or OrganizationalUnits
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType> 
+
+    <xs:element name="HasSubOrganization" type="OrganizationType"/> 
+    <xs:element name="SubOrganizationOf" type="OrganizationType"/> 
+
+    
+<!-- OrganizationalUnitType -->    
+    
+    <xs:complexType name="OrganizationalUnitType" sawsdl:modelReference="http://www.w3.org/ns/org#OrganizationalUnit">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A subdivision of Organization which is part of this Organization.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="OrganizationType">
+                <xs:sequence>
+                    <xs:element ref="UnitOf" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#unitOf">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The Public Organisation of which the Organizational Unit is an operational department.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType> 
+    
+    <xs:element name="UnitOf" type="PublicOrganizationType"/>
+
+    
+<!-- PublicOrganizationType -->
+
+   <xs:element name="PublicOrganization" type="PublicOrganizationType"/>
+
+    <xs:complexType name="PublicOrganizationType" sawsdl:modelReference="http://data.europa.eu/m8g/PublicOrganisation">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                An Organization that is defined as being part of the public sector by a legal framework at any level.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="OrganizationType">
+                <xs:sequence>
+                    <xs:element ref="Address" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#Address">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                An Organization that is defined as being part of the public sector by a legal framework at any level.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="AlternativeLabel" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2004/02/skos/core#altLabel">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The Address of a Public Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="ChangedBy" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#changedBy">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                An alternative or informal name(s) of a Public Organization, irrespective of language.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Classification" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#classification">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The Change Event that changed the Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="ContactPointPO" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/contactPoint">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The main contact information of the resource.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Description" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/description">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The textual description of the Public Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="HasMember" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#hasMember">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                An Organization which is a member of another without being a sub organization, they are independent entities.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="HasUnit" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#hasUnit">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                An operational department within the Public Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Homepage" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://xmlns.com/foaf/0.1/homepage">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The official home page of the Public Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Identifier" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/adms#identifier">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The unambiguous structured reference for the Public Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Logo" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/logo">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                A graphic symbol to represent the Public Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="MemberOf" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#memberOf">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                An Organization of which the Public Organisation is a member without being a sub organization, they are independent entities.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Next" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/1999/xhtml/vocab#next">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                In some cases, it is necessary to be able to create an ordered sequence of organizations that precede and succeed each other. To support this, the CPOV includes the well-known relationships of previous and next to allow such sequences to be captured and computed.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="PreferredLabel" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2004/02/skos/core#prefLabel">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                A preferred label is used to provide the primary, legally recognised name of the Public Organization, as defined in the ORG Ontology.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Prev" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/1999/xhtml/vocab#prev">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                In some cases, it is necessary to be able to create an ordered sequence of an organization that precede and succeed each other. To support this, the CPOV includes the well-known relationships of previous and next to allow such sequences to be captured and computed.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Purpose" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#purpose">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                This property describes the reasons of existence of an Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="ResultedFrom" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#resultedFrom">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                A Change Event from which the Public Organisation resulted.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Spatial" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/spatial">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                This property links an Organization to the Administrative Region(s) that it covers.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType> 
+    
+    <xs:element name="AlternativeLabel" type="TextType"/>
+    <xs:element name="ChangedBy" type="ChangeEventType"/> 
+    <xs:element name="Classification" type="CodeType"/>
+    <xs:element name="ContactPointPO" type="ContactPointPOType"/>
+    <xs:element name="HasMember" type="PublicOrganizationType"/> 
+    <xs:element name="HasUnit" type="OrganizationalUnitType"/>
+    <xs:element name="Homepage" type="DocumentType"/>
+    <xs:element name="Logo" type="ImageObjectType"/>
+    <xs:element name="MemberOf" type="PublicOrganizationType"/>
+    <xs:element name="Next" type="PublicOrganizationType"/>
+    <xs:element name="PreferredLabel" type="TextType"/>
+    <xs:element name="Prev" type="PublicOrganizationType"/>
+    <xs:element name="Purpose" type="CodeType"/> 
+    <xs:element name="ResultedFrom" type="ChangeEventType"/> 
+    <xs:element name="Spatial" type="LocationType"/> 
+
+
+<!-- ReferenceFrameworkPOType -->    
+    
+    <xs:complexType name="ReferenceFrameworkPOType" sawsdl:modelReference="http://data.europa.eu/m8g/ReferenceFramework">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Legislation or official policy from which Requirements are derived.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="ReferenceFrameworkType">
+                <xs:sequence>
+                    <xs:element ref="Implements" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.purl.org/vocab/cpsv#implements"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType> 
+
+    <xs:element name="Implements" type="ChangeEventType"/>
+
+   
+<!-- TemporalEntityType -->   
+   
+    <xs:complexType name="TemporalEntityType" sawsdl:modelReference="http://www.w3.org/2006/time#TemporalEntity">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A temporal interval or instant.
+            </xs:documentation>
+        </xs:annotation>
+    
+            <xs:sequence>
+                <xs:element ref="Description" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/description">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            A textual representation of the Temporal Entity.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element ref="Frequency" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/frequency">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            The recurrence of an instant or period.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+    </xs:complexType>     
+
+    <xs:element name="Frequency" type="CodeType" />
+    
+  
+    
+</xs:schema>   

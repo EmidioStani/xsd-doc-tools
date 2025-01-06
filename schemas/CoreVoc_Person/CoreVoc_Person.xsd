@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===== Schema Header ================================= -->
+<xs:schema 
+
+    targetNamespace="https://data.europa.eu/m8g/xsd" 
+    xmlns="https://data.europa.eu/m8g/xsd" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:dcterms="http://purl.org/dc/elements/1.1/"
+    xmlns:sawsdl="http://www.w3.org/ns/sawsdl"
+    elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">    
+
+<!-- ===== Includes/Imports ============================== -->
+    <xs:include schemaLocation="../CoreVoc_Common/CoreVoc_CommonTypes.xsd"/>
+    <xs:include schemaLocation="../CoreVoc_Aggregat/CoreVoc_Aggregat.xsd"/>
+
+<!-- ===== Meta Data==== ================================= -->
+    <xs:annotation>
+        <xs:documentation>Core Person Vocabulary</xs:documentation>
+        <xs:appinfo>
+            <dcterms:title>Core Person Vocabulary</dcterms:title>
+            <dcterms:description>This XML schema describes the Core Person Vocabulary as part of SEMIC Core Vocabularies .</dcterms:description>
+            <dcterms:creator>Emidio Stani (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Ine Weyts (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Wolfgang Keber (DIaLOGIKa GmbH)</dcterms:creator>  
+            <dcterms:contributor>Pavlina Fragkou (European Commission)</dcterms:contributor>
+            <dcterms:contributor>Anastasia Sofou (Trasys International)</dcterms:contributor>
+            <dcterms:contributor>Kristina Hector (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:contributor>Patrick Plewka (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:licence>Licensed under the CC BY 4.0</dcterms:licence>
+            <dcterms:rightsHolder>European Union</dcterms:rightsHolder>
+            <dcterms:copyright>Copyright (C) European Union, 2024</dcterms:copyright>
+            <dcterms:status>In progress</dcterms:status>
+            <dcterms:created>2024-10-15</dcterms:created>
+        </xs:appinfo>
+    </xs:annotation>
+    
+<!-- ===== Schema Definition ============================= -->
+  
+<!-- JurisdictionType -->
+
+    <xs:complexType name="JurisdictionType" sawsdl:modelReference="http://purl.org/dc/terms/Jurisdiction">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                "The limits or territory within which authority may be exercised. The extent or range of judicial, law enforcement, or other authority.
+For this entity the following properties are defined: id , name"
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Id" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/identifier">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A reference in the form of a Uniform Resource Identifier to the Jurisdiction.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="JurisdictionName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2000/01/rdf-schema#label">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A string of characters that represents a Jurisdiction.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="Id" type="xs:anyURI"/>
+    <xs:element name="JurisdictionName" type="TextType"/>
+
+    
+<!-- PersonType -->
+    
+	<xs:element name="Person" type="PersonType"/>
+ 
+    <xs:complexType name="FoafPersonType" sawsdl:modelReference="http://xmlns.com/foaf/0.1/Person">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="AgentType"/>
+        </xs:complexContent>   
+    </xs:complexType>
+    
+	<xs:complexType name="PersonType" sawsdl:modelReference="http://www.w3.org/ns/person#Person">
+	    <xs:annotation>
+	        <xs:documentation xml:lang="en">
+	            A individual human being who may be dead or alive, but not imaginary
+	        </xs:documentation>
+	    </xs:annotation> 
+        <xs:complexContent>
+            <xs:extension base="FoafPersonType">
+                <xs:sequence>
+                    <xs:element ref="AlternativeName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/alternative">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Any name by which a Person is known, other than their full name.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="BirthName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/person#birthName">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Full name of the Person given upon their birth.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Citizenship" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/person#citizenship">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The Jurisdiction that has conferred citizenship rights on the Person such as the right to vote, to receive certain protection from the community or the issuance of a passport.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="ContactPoint" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/contactPoint">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The main contact information of the resource.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="CountryOfBirth" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/person#countryOfBirth">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The country in which the Person was born.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="CountryOfDeath" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/person#countryOfDeath">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The country in which the Person died.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="DateOfBirth" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/birthDate">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The point in time on which the Person was born.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="DateOfDeath" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/deathDate">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The point in time on which the Person died.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Domicile" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/domicile">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The place that the Person treats as permanent home.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="FamilyName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://xmlns.com/foaf/0.1/familyName">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The hereditary surname of a family.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="FullName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://xmlns.com/foaf/0.1/name">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The complete name of the Person as one string.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Gender" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/gender">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The identities, expressions and societal roles of the Person.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="GivenName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://xmlns.com/foaf/0.1/givenName">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The name(s) that identify the Person within a family with a common surname.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="IdentifierPerson" minOccurs="0 " maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/identifier">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The unambiguous structured reference to the Person.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="MatronymicName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/matronymicName">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Name based on the given name of the Person's mother.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="PatronymicName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/person#patronymicName">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Name based on the given name of the Person's father.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="PlaceOfBirth" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/person#placeOfBirth">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The Location where the Person was born.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="PlaceOfDeath" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/person#placeOfDeath">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The Location where the Person died.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Residency" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/person#residency">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Jurisdiction where the Person has their dwelling.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="Sex" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/sex">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The organism's biological sex.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+	</xs:complexType>
+
+    <xs:element name="BirthName" type="TextType"/> 
+    <xs:element name="Citizenship" type="JurisdictionType"/> 
+    <xs:element name="CountryOfBirth" type="LocationType"/> 
+    <xs:element name="CountryOfDeath" type="LocationType"/> 
+    <xs:element name="DateOfBirth" type="GenericDateType"/> 
+    <xs:element name="DateOfDeath" type="GenericDateType"/> 
+    <xs:element name="Domicile" type="AddressType"/> 
+    <xs:element name="FamilyName" type="TextType"/> 
+    <xs:element name="FullName" type="TextType"/> 
+    <xs:element name="Gender" type="CodeType"/> 
+    <xs:element name="GivenName" type="TextType"/>
+    <xs:element name="IdentifierPerson" type="IdentifierType"/>
+    <xs:element name="MatronymicName" type="TextType"/>
+    <xs:element name="PatronymicName" type="TextType"/>
+    <xs:element name="PlaceOfBirth" type="LocationType"/>
+    <xs:element name="PlaceOfDeath" type="LocationType"/>
+    <xs:element name="Residency" type="JurisdictionType"/>
+    <xs:element name="Sex" type="CodeType"/>
+
+
+    
+</xs:schema>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===== Schema Header ================================= -->
+<xs:schema 
+    targetNamespace="https://data.europa.eu/m8g/xsd" 
+    xmlns="https://data.europa.eu/m8g/xsd" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:dcterms="http://purl.org/dc/elements/1.1/"
+    xmlns:sawsdl="http://www.w3.org/ns/sawsdl"
+    elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0">    
+
+<!-- ===== Includes/Imports ============================== -->
+    <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="http://www.dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd"/>
+    <xs:include schemaLocation="../CoreVoc_Common/CoreVoc_CommonTypes.xsd"/>
+
+<!-- ===== Meta Data==== ================================= -->
+    <xs:annotation>
+        <xs:documentation>Core Aggregated Components</xs:documentation>
+        <xs:appinfo>
+            <dcterms:title>Core Aggregated Components</dcterms:title>
+            <dcterms:description>This XML schema describes the Core Aggregated Components as part of SEMIC Core Vocabularies .</dcterms:description>
+            <dcterms:creator>Emidio Stani (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Ine Weyts (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Wolfgang Keber (DIaLOGIKa GmbH)</dcterms:creator>  
+            <dcterms:contributor>Pavlina Fragkou (European Commission)</dcterms:contributor>
+            <dcterms:contributor>Anastasia Sofou (Trasys International)</dcterms:contributor>
+            <dcterms:contributor>Kristina Hector (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:contributor>Patrick Plewka (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:licence>Licensed under the CC BY 4.0</dcterms:licence>
+            <dcterms:rightsHolder>European Union</dcterms:rightsHolder>
+            <dcterms:copyright>Copyright (C) European Union, 2024</dcterms:copyright>
+            <dcterms:status>In progress</dcterms:status>
+            <dcterms:created>2024-10-15</dcterms:created>
+        </xs:appinfo>
+    </xs:annotation>
+    
+<!-- ===== Schema Definition ============================= -->
+    
+<!-- AddressType/used by: Business, Person  -->    
+    
+    <xs:element name="Address" type="AddressType">
+    </xs:element>
+
+    <xs:complexType name="AddressType" sawsdl:modelReference="http://www.w3.org/ns/locn#Address">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A spatial object that in a human-readable way identifies a fixed location.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="AddressArea" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#addressArea">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The name of a geographic area that groups Addresses.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="AddressID" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#addressId">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A globally unique identifier for each instance of an Address.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="AdminUnitL1" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#adminUnitL1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The name of the uppermost level of the address, almost always a country.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="AdminUnitL2" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#adminUnitL2">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="FullAddress" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#fullAddress">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The complete address written as a string.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="LocatorDesignator" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#locatorDesignator">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A number or sequence of characters that uniquely identifies the locator within the relevant scope.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="LocatorName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#locatorName">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="PoBox" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#poBox">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A location designator for a postal delivery point at a post office, usually a number.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="PostCode" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#postCode">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="PostName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#postName">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Thoroughfare" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#thoroughfare">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The name of a passage or way through from one location to another.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>  
+    
+    <xs:element name="AddressArea" type="TextType"/>
+    <xs:element name="AddressID" type="LiteralType"/>
+    <xs:element name="AdminUnitL1" type="TextType"/> 
+    <xs:element name="AdminUnitL2" type="TextType"/> 
+    <xs:element name="FullAddress" type="TextType"/> 
+    <xs:element name="LocatorDesignator" type="LiteralType"/> 
+    <xs:element name="LocatorName" type="TextType"/> 
+    <xs:element name="PoBox" type="LiteralType"/> 
+    <xs:element name="PostCode" type="LiteralType"/> 
+    <xs:element name="PostName" type="TextType"/> 
+    <xs:element name="Thoroughfare" type="TextType"/> 
+
+    
+<!--  AgentType/used by: Business, Person, Public Organization    -->    
+
+    <xs:complexType name="AgentType" abstract="true" sawsdl:modelReference="http://xmlns.com/foaf/0.1/Agent">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Entity that is able to carry out action.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="AgentName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/title">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The noun given to the Agent.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="AgentType" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/type">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A classification assigned to an Agent.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="AgentName" type="TextType"/> 
+    <xs:element name="AgentType" type="CodeType"/> 
+
+    
+<!--  ContactPointType/used by: Business, Person, PublicOrganization   -->
+
+    <xs:element name="ContactPoint" type="ContactPointType"/>
+
+    <xs:complexType name="ContactPointType" sawsdl:modelReference="http://data.europa.eu/m8g/ContactPoint">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Information (e.g. e-mail address, telephone number) of a person or department through which the user can get in touch with.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="ContactPage" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/contactPage">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A web page that could be used to reach out the Contact Point.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasEmail" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/email">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        An electronic address through which the Contact Point can be contacted.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasTelephone" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/telephone">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A telephone number through which the Contact Point can be contacted.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="ContactPage" type="DocumentType"/> 
+    <xs:element name="HasEmail" type="LiteralType"/> 
+    <xs:element name="HasTelephone" type="LiteralType"/> 
+
+    
+<!--  IdentifierType/used by: Business, Person, PublicOrganization   -->    
+
+    <xs:complexType name="IdentifierType" sawsdl:modelReference="http://www.w3.org/ns/adms#Identifier">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A structured reference that identifies an entity.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="DateOfIssue" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/issued">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The date on which the Identifier was assigned.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Identifies" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/identifies">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The entity that is referenced by the Identifier.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="IssuingAuthorityURI" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/creator">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The reference in the form of a Uniform Resource Identifier to the issuing authority.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Notation" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2004/02/skos/core#notation">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A string of characters to uniquely identify a concept.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="SchemaAgency" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/adms#schemaAgency">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The name of the agency that issued the identifier.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="SchemeName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2000/01/rdf-schema#label">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Name of the scheme used to construct the identifier.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="SchemeURI" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/conformsTo">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        URI of the scheme used to construct the identifier.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="DateOfIssue" type="xs:date"/> 
+    <xs:element name="Identifies" type="xs:anyType"/>
+    <xs:element name="IssuingAuthorityURI" type="AgentType"/>
+    <xs:element name="Notation" type="LiteralType"/>
+    <xs:element name="SchemaAgency" type="LiteralType"/> 
+    <xs:element name="SchemeName" type="TextType"/> 
+    <xs:element name="SchemeURI" type="xs:anyURI"/> 
+
+    
+<!--  LocationType/used by: Person, PublicOrganization, Location   -->    
+  
+    <xs:element name="Location" type="LocationType"/>
+
+    <xs:complexType name="LocationType" sawsdl:modelReference="http://purl.org/dc/terms/Location">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                An identifiable geographic place or named place.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="GeographicIdentifier" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2000/01/rdf-schema#seeAlso">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A reference in the form of a Uniform Resource Identifier to the Location.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="GeographicName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#geographicName">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A textual description for a Location.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>  
+    
+    <xs:element name="GeographicIdentifier" type="xs:anyURI"/> 
+    <xs:element name="GeographicName" type="TextType"/> 
+
+    
+<!-- ReferenceFrameworkType/used by: Public Organization, CCCEV -->    
+    
+    <xs:complexType name="ReferenceFrameworkType" sawsdl:modelReference="http://data.europa.eu/m8g/ReferenceFramework">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Legislation or official policy from which Requirements are derived.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Identifier" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/identifier">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        An unambiguous reference to a Reference Framework.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType> 
+
+    <xs:element name="Identifier" type="LiteralType"/>
+
+
+<!--  DocumentType, ImageObjectType/used by: PublicOrganization   -->    
+    
+    <xs:complexType name="DocumentType" sawsdl:modelReference="http://xmlns.com/foaf/0.1/Document">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A self-contained collection of information in a readable format.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+
+    <xs:complexType name="ImageObjectType" sawsdl:modelReference="http://data.europa.eu/m8g/ImageObject">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A logo to describe / represent an entity.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+
+    
+</xs:schema>   

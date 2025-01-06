@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema 
+targetNamespace="https://data.europa.eu/m8g/xsd"    
+xmlns="https://data.europa.eu/m8g/xsd" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:dcterms="http://purl.org/dc/elements/1.1/"
+xmlns:sawsdl="http://www.w3.org/ns/sawsdl" 
+elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.2.0">    
+
+    <xs:include schemaLocation="../CoreVoc_Common/CoreVoc_CommonTypes.xsd"/>
+    <xs:include schemaLocation="../CoreVoc_Aggregat/CoreVoc_Aggregat.xsd"/>
+
+<!-- ===== Meta Data==== ================================= -->
+    <xs:annotation>
+        <xs:documentation>Core Business Vocabulary</xs:documentation>
+        <xs:appinfo>
+            <dcterms:title>Core Business Vocabulary</dcterms:title>
+            <dcterms:description>This XML schema describes the Core Business Vocabulary as part of SEMIC Core Vocabularies .</dcterms:description>
+            <dcterms:creator>Emidio Stani (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Ine Weyts (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Wolfgang Keber (DIaLOGIKa GmbH)</dcterms:creator>  
+            <dcterms:contributor>Pavlina Fragkou (European Commission)</dcterms:contributor>
+            <dcterms:contributor>Anastasia Sofou (Trasys International)</dcterms:contributor>
+            <dcterms:contributor>Kristina Hector (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:contributor>Patrick Plewka (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:licence>Licensed under the CC BY 4.0</dcterms:licence>
+            <dcterms:rightsHolder>European Union</dcterms:rightsHolder>
+            <dcterms:copyright>Copyright (C) European Union, 2024</dcterms:copyright>
+            <dcterms:status>In progress</dcterms:status>
+            <dcterms:created>2024-10-15</dcterms:created>
+        </xs:appinfo>
+    </xs:annotation>
+
+
+<!-- AccountingDocumentType -->    
+    
+    <xs:complexType name="AccountingDocumentType" sawsdl:modelReference="data.europa.eu/m8g/AccountingDocument">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Financial and non-financial information as a result of an activity of an organisation.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+
+    <xs:element name="AccountingDocument" type="AccountingDocumentType"/>
+
+    
+<!-- BusinessAgentType -->
+
+    <xs:element name="BusinessAgent" type="BusinessAgentType"/>
+
+    <xs:complexType name="BusinessAgentType" sawsdl:modelReference="http://xmlns.com/foaf/0.1/Agent">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Entity that is able to carry out action.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="AgentType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Entity that is able to carry out action.
+                    </xs:documentation>
+                </xs:annotation>
+            
+                <xs:sequence>
+                    <xs:element ref="HeadOf" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#headOf">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Indicates that a person (or other agent) is the leader or formal head of the Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="MemberOf" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#memberOf">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Indicates that an agent (person or other organization) is a member of the Organization with no indication of the nature of that membership or the role played.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+ 
+    <xs:element name="HeadOf" type="OrganizationType"/> 
+    <xs:element name="MemberOf" type="OrganizationType"/> 
+
+    
+<!-- FormalOrganizationType -->
+
+    <xs:complexType name="FormalOrganizationType" sawsdl:modelReference="http://www.w3.org/ns/org#FormalOrganization">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                An Organization which is recognized in the world at large, in particular in legal jurisdictions, with associated rights and responsibilities
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="OrganizationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+   
+   
+<!-- LegalEntityType -->
+   
+    <xs:complexType name="LegalEntityType" sawsdl:modelReference="http://www.w3.org/ns/legal#LegalEntity">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A self-employed person, company, or organization that has legal rights and obligations.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="FormalOrganizationType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        An Organization which is recognized in the world at large, in particular in legal jurisdictions, with associated rights and responsibilities
+                    </xs:documentation>
+                </xs:annotation>
+            
+                <xs:sequence>
+                    <xs:element ref="AlternativeName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://purl.org/dc/terms/alternative">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Any name by which a Legal Entity is known, other than their legal name.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="ContactPoint" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/contactPoint">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The main contact information of the resource.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="HasAccountingDocument" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/hasAccountingDocument">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The accounting document provided by an organisation.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="IdentifierLegalEntity" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/adms#Identifier">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The unambiguous structured reference for the Legal Entity, which is different from the one denoting its legal status.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="LegalEntityActivity" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/legal#companyActivity">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The area of work in which the Legal Entity is engaged.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="LegalEntityStatus" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/legal#companyStatus">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Information about the viability of the current position of the legal entity.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="LegalFormType" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/legal#companyType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The classification of the Legal Entity as a member of a particular group in the context of legal registration.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="LegalIdentifierLegalEntity" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/legal#legalIdentifier">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The unambiguous structured reference assigned to the Legal Entity by the legal authority that registered it.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="LegalName" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/legal#legalName">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The name under which the Legal Entity is legally registered.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="RegisteredAddress" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/registeredAddress">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The address at which the Legal Entity is legally registered.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="RegistrationDate" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/registrationDate">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                The date on which the legal entity has registered in some jurisdiction for regulatory and / or for tax purposes.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>  
+
+    <xs:element name="HasAccountingDocument" type="AccountingDocumentType"/> 
+    <xs:element name="IdentifierLegalEntity" type="IdentifierLegalEntityType"/> 
+    <xs:element name="LegalIdentifierLegalEntity" type="IdentifierLegalEntityType"/> 
+    <xs:element name="LegalEntityActivity" type="CodeType"/> 
+    <xs:element name="LegalEntityStatus" type="CodeType"/> 
+    <xs:element name="LegalFormType" type="CodeType"/> 
+    <xs:element name="LegalName" type="TextType"/> 
+    <xs:element name="RegisteredAddress" type="AddressType"/> 
+    <xs:element name="RegistrationDate" type="xs:date"/>
+
+    <xs:complexType name="IdentifierLegalEntityType" sawsdl:modelReference="http://www.w3.org/ns/adms#identifier">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                The unambiguous structured reference for the Legal Entity, which is different from the one denoting its legal status.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+
+    <xs:element name="IdentifiesLegalEntity" type="LegalEntityType"/> 
+    
+
+<!-- OrganizationType -->
+    
+    <xs:complexType name="OrganizationType" sawsdl:modelReference="http://www.w3.org/ns/org#Organization">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures.
+            </xs:documentation>
+        </xs:annotation>
+    
+       <xs:complexContent>
+            <xs:extension base="BusinessAgentType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Entity that is able to carry out action.
+                    </xs:documentation>
+                </xs:annotation>
+            
+                <xs:sequence>
+                    <xs:element ref="HasMember" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#hasMember">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                Indicates an agent (person or other organization) who is a member of the subject Organization.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="HasSubOrganization" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#hasSubOrganization">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                "Represents hierarchical containment of Organizations or OrganizationalUnits
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="SubOrganizationOf" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/org#subOrganizationOf">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                "Represents hierarchical containment of Organizations or OrganizationalUnits
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>  
+
+    <xs:element name="HasMember" type="BusinessAgentType"/> 
+    <xs:element name="HasSubOrganization" type="OrganizationType"/> 
+    <xs:element name="SubOrganizationOf" type="OrganizationType"/> 
+
+
+</xs:schema>   
+    

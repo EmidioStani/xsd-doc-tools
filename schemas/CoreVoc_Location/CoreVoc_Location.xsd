@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema 
+targetNamespace="https://data.europa.eu/m8g/xsd" 
+xmlns="https://data.europa.eu/m8g/xsd" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:dcterms="http://purl.org/dc/elements/1.1/"
+xmlns:sawsdl="http://www.w3.org/ns/sawsdl"
+elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">    
+
+    <xs:include schemaLocation="../CoreVoc_Common/CoreVoc_CommonTypes.xsd"/>
+    <xs:include schemaLocation="../CoreVoc_Aggregat/CoreVoc_Aggregat.xsd"/>
+    
+<!-- ===== Meta Data==== ================================= -->
+    <xs:annotation>
+        <xs:documentation>Core Location Vocabulary</xs:documentation>
+        <xs:appinfo>
+            <dcterms:title>Core Location Vocabulary</dcterms:title>
+            <dcterms:description>This XML schema describes the Core Location Vocabulary as part of SEMIC Core Vocabularies .</dcterms:description>
+            <dcterms:creator>Emidio Stani (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Ine Weyts (PwC Belgium)</dcterms:creator>
+            <dcterms:creator>Wolfgang Keber (DIaLOGIKa GmbH)</dcterms:creator>  
+            <dcterms:contributor>Pavlina Fragkou (European Commission)</dcterms:contributor>
+            <dcterms:contributor>Anastasia Sofou (Trasys International)</dcterms:contributor>
+            <dcterms:contributor>Kristina Hector (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:contributor>Patrick Plewka (DIaLOGIKa GmbH)</dcterms:contributor>
+            <dcterms:licence>Licensed under the CC BY 4.0</dcterms:licence>
+            <dcterms:rightsHolder>European Union</dcterms:rightsHolder>
+            <dcterms:copyright>Copyright (C) European Union, 2024</dcterms:copyright>
+            <dcterms:status>In progress</dcterms:status>
+            <dcterms:created>2024-10-15</dcterms:created>
+        </xs:appinfo>
+    </xs:annotation>
+    
+<!-- AdminUnitType -->    
+    
+    <xs:complexType name="AdminUnitType" sawsdl:modelReference="http://data.europa.eu/m8g/AdminUnit">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A detailed administrative unit organized in a hierarchy.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Code" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2004/02/skos/core#Concept">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The classification of the administrative unit.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Level" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/level">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The level of the administrative unit in the hierarchy.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Name" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/2000/01/rdf-schema#label">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Official, geographical name of the administrative unit, given in different languages where required.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>  
+
+    <xs:element name="Code" type="CodeType"/> 
+    <xs:element name="Level" type="CodeType"/>
+
+    
+<!-- GeometryType -->    
+
+    <xs:complexType name="GeometryType" sawsdl:modelReference="http://www.w3.org/ns/locn#Geometry">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A shape or form of a Location.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Coordinates" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/coordinates">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A list of geographic coordinates that define the extent of the Geometry.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Crs" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/crs">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        An identifier for the coordinate reference system.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="GeometryType" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/geometryType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The classification of the Geometry.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Gml" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.opengis.net/ont/geosparql#asGML">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The expression of the Geometry in Geography Markup Language.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Latitude" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/latitude">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The geographic coordinate that specifies the north / south position of the Geomerty on the Earth's surface.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Longitude" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/longitude">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The geographic coordinate that specifies the east / west position of the Geometry on the Earth's surface.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Wkt" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.opengis.net/ont/geosparql#asWKT">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        An expression of the Geometry in WKT, the Well-Known Text markup language.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="Coordinates" type="xs:string"/> 
+    <xs:element name="Crs" type="xs:anyURI"/>
+    <xs:element name="GeometryType" type="CodeType"/>
+    <xs:element name="Gml" type="LiteralType"/>
+    <xs:element name="Latitude" type="xs:string"/> 
+    <xs:element name="Longitude" type="xs:string"/>
+    <xs:element name="Wkt" type="LiteralType"/>
+
+    
+<!-- LocationAddressType -->    
+    
+    <xs:complexType name="LocationAddressType" sawsdl:modelReference="http://www.w3.org/ns/locn#Address">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A spatial object that in a human-readable way identifies a fixed location.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:complexContent>
+            <xs:extension base="AddressType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        A spatial object that in a human-readable way identifies a fixed location.
+                    </xs:documentation>
+                </xs:annotation>
+            
+                <xs:sequence>
+                    <xs:element ref="AdminUnit" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/AdminUnit">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">
+                                A detailed administrative unit organized in a hierarchy
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element ref="HasLocatorDesignator" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/hasLocatorDesignator">
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="AdminUnit" type="AdminUnitType"/> 
+    <xs:element name="HasLocatorDesignator" type="LocatorDesignatorType"/> 
+
+    
+<!-- LocatorDesignatorType -->    
+
+    <xs:complexType name="LocatorDesignatorType" sawsdl:modelReference="http://inspire.ec.europa.eu/ont/ad#LocatorDesignator">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                A number or a sequence of characters that uniquely identifies the locator within the relevant scope(s). The full identification of the locator could include one or more locator designators.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="Designator" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://inspire.ec.europa.eu/ont/ad#LocatorDesignator.designator">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The identifying part of the locator designator composed by one or more digits or other characters.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="Type" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://inspire.ec.europa.eu/ont/ad#LocatorDesignator.type">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The type of locator value, which enables an application to interpret, parse or format it according to certain rules.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>  
+
+    <xs:element name="Designator" type="LiteralType"/>
+
+    
+<!-- ResourceType -->    
+
+    <xs:element name="Resource" type="ResourceType"/> 
+
+    <xs:complexType name="ResourceType" abstract="true" sawsdl:modelReference="http://www.w3.org/2000/01/rdf-schema#Resource">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Anything that can be described.
+            </xs:documentation>
+        </xs:annotation>
+    
+        <xs:sequence>
+            <xs:element ref="HasAddress" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#address">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Associates any Resource with the corresponding Address.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasGeometry" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#geometry">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Associates any Resource with the corresponding Geometry.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasLocation" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://www.w3.org/ns/locn#location">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        Associates any Resource with the corresponding Location.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="HasRegisteredAddress" minOccurs="0" maxOccurs="unbounded" sawsdl:modelReference="http://data.europa.eu/m8g/registeredAddress">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The registered address relationship links a Resource with the legally registered Address.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>  
+
+    <xs:element name="HasAddress" type="LocationAddressType"/>
+    <xs:element name="HasGeometry" type="GeometryType"/> 
+    <xs:element name="HasLocation" type="LocationType"/> 
+    <xs:element name="HasRegisteredAddress" type="LocationAddressType"/>
+
+
+</xs:schema>   
