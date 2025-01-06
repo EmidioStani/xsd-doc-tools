@@ -41,7 +41,7 @@ PURPOSE.
 	<!--=== Root-Node of an UnitsML document ===-->
 	<xsd:element name="UnitsML" type="UnitsMLType">
 		<xsd:annotation>
-			<xsd:documentation>Test Container for UnitsML units, quantities, and prefixes.</xsd:documentation>
+			<xsd:documentation>Container for UnitsML units, quantities, and prefixes.</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
 	<xsd:complexType name="UnitsMLType">
