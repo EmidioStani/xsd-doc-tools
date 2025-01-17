@@ -8,8 +8,8 @@ endif
 SCHEMA_VERSION := 1.0
 CURR_SCHEMA := unitsml-v${SCHEMA_VERSION}
 
-SRC := $(wildcard schemas/*.xsd)
-DOCS := $(patsubst schemas/%.xsd,docs/%/index.html,$(SRC))
+SRC := $(wildcard models/*.xsd)
+DOCS := $(patsubst models/%.xsd,docs/%/index.html,$(SRC))
 
 XERCESURL := https://downloads.apache.org/xerces/j/binaries/Xerces-J-bin.2.12.2.tar.gz
 XSDVIURL := https://github.com/metanorma/xsdvi/releases/download/v1.0/xsdvi-1.0.jar
