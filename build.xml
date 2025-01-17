@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="ph-schematron test" default="report">
+    
+    <taskdef name="schematron" classname="com.helger.schematron.ant.Schematron" classpath="./rules/lib/ph-schematron-ant-task-8.0.5-jar-with-dependencies.jar"/>
+    
+	
+	<path id="saxon">
+	    <fileset dir="./rules/lib/SaxonHE12-5J">
+	        <include name="saxon-he-12.5.jar" />
+	    </fileset>
+	</path>
+	<target name="validate">
+		<schematron schematronFile="./rules/rules_schematron.sch" expectSuccess="true"  failonerror="false" svrlDirectory="./rules/output">
+		      <fileset dir="./models">
+		        <include name="**/*.xsd" />
+				<exclude name="**/CoreVoc_Aggregat/dc.xsd"/>
+				<exclude name="**/CoreVoc_Aggregat/dcmitype.xsd"/>
+				<exclude name="**/CoreVoc_Aggregat/dcterms.xsd"/>
+				<exclude name="**/CoreVoc_Common/xml.xsd"/>
+		      </fileset>
+		 </schematron>
+	  </target>
+
+	<target name="report" depends="validate">
+		<xslt basedir="./rules/output"
+		       destdir="./rules/output"
+			   includes="**/*.svrl"
+		       style="./rules/lib/svrl-to-html.xslt"
+		       processor="trax">
+		       <factory name="net.sf.saxon.BasicTransformerFactory"/>    
+			   <classpath refid="saxon" />
+		 </xslt>
+    </target>
+
+</project>
