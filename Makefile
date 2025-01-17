@@ -8,7 +8,7 @@ endif
 SCHEMA_VERSION := 1.0
 CURR_SCHEMA := unitsml-v${SCHEMA_VERSION}
 
-SRC := $(wildcard models/*.xsd)
+SRC := $(wildcard models/**/*.xsd)
 DOCS := $(patsubst models/%.xsd,docs/%/index.html,$(SRC))
 
 XERCESURL := https://downloads.apache.org/xerces/j/binaries/Xerces-J-bin.2.12.2.tar.gz
