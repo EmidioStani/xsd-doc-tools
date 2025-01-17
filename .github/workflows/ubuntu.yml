@@ -28,8 +28,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Run the Ant jar target
-        run: ant -noinput -buildfile build.xml jar
+      - name: Run the Ant report target
+        run: ant -noinput -buildfile build.xml report
 
   deploy-gh-pages:
     if: github.ref == 'refs/heads/master'
