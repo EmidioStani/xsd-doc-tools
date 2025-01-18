@@ -54,7 +54,7 @@ $(XS3PPATH): .archive/xs3p.tar.gz
 	tar -zxvf $< -C xsl --strip-components=2 xs3p-3.0/xsl
 	touch $@
 
-docs/%/index.html: models/%/%.xsd $(XSDVIPATH) $(XERCESPATH) $(XS3PPATH)
+docs/%/index.html: models/**/*.xsd $(XSDVIPATH) $(XERCESPATH) $(XS3PPATH)
 	mkdir -p $(dir $@)diagrams; \
 	java -jar $(XSDVIPATH) $(CURDIR)/$< \
 		-rootNodeName all \
