@@ -40,7 +40,7 @@ setup: $(XSDVIPATH) $(XERCESPATH) $(XS3PPATH)
 	tar -zxvf $@ -C $(dir $@) --strip-components=1
 
 # Download and install XSDVI, Xerces, XS3P
-$(XSDVIPATH): .archive/xsdvi-1.0.jar
+$(XSDVIPATH): .archive/xsdvi-1.0.jar.tar.gz
 	cp $< $@
 
 $(XERCESPATH): .archive/Xerces-J-bin.2.12.2.tar.gz
