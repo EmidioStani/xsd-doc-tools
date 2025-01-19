@@ -1,10 +1,13 @@
 #!make
+
+# Define SHELL based on OS
 ifeq ($(OS),Windows_NT)
 SHELL := cmd
 else
 SHELL := /bin/bash
 endif
 
+# Variables
 SCHEMA_VERSION := 1.0
 CURR_SCHEMA := unitsml-v${SCHEMA_VERSION}
 
@@ -19,51 +22,40 @@ XERCESPATH := xsdvi/xercesImpl.jar
 XSDVIPATH := xsdvi/xsdvi.jar
 XS3PPATH := xsl/xs3p.xsl
 
+# Define URLs for additional resources
 PREFIXES_PATH := https://github.com/unitsml/unitsdb/raw/main/prefixes.yaml
 UNITS_PATH := https://github.com/unitsml/unitsdb/raw/main/units.yaml
 
+# Default target
 all: docs
 
 docs: $(DOCS)
 
 setup: $(XSDVIPATH) $(XERCESPATH) $(XS3PPATH)
 
-.archive/Xerces-J-bin.2.12.2.tar.gz:
+# Generic rule to download and extract archives
+.archive/%.tar.gz:
 	mkdir -p $(dir $@)
-	curl -sSL -o $@ $(XERCESURL)
+	curl -sSL -o $@ $*
+	tar -zxvf $@ -C $(dir $@) --strip-components=1
 
-.archive/xsdvi-1.0.jar:
-	mkdir -p $(dir $@)
-	curl -sSL -o $@ $(XSDVIURL)
-
-.archive/xs3p.tar.gz:
-	mkdir -p $(dir $@)
-	curl -sSL -o $@ $(XS3PURL)
-
+# Download and install XSDVI, Xerces, XS3P
 $(XSDVIPATH): .archive/xsdvi-1.0.jar
-	mkdir -p $(dir $@)
 	cp $< $@
 
 $(XERCESPATH): .archive/Xerces-J-bin.2.12.2.tar.gz
-	mkdir -p $(dir $@)
-	tar -zxvf $< -C xsdvi --strip-components=1 xerces-2_12_2/xercesImpl.jar
-	touch $@
+	mv xsdvi/xerces-2_12_2/xercesImpl.jar $@
 
 $(XS3PPATH): .archive/xs3p.tar.gz
-	mkdir -p $(dir $@)
-	tar -zxvf $< -C xsl --strip-components=2 xs3p-3.0/xsl
-	touch $@
+	mv xsl/xs3p-3.0/xsl/* $@
 
+# Create HTML documentation from XSD
 docs/%/index.html: models/%.xsd $(XSDVIPATH) $(XERCESPATH) $(XS3PPATH)
-	mkdir -p $(dir $@)diagrams; \
-	java -jar $(XSDVIPATH) $< \
-		-rootNodeName all \
-		-oneNodeOnly \
-		-outputPath $(dir $@)diagrams; \
-	xsltproc --nonet \
-		--param title "'Schema documentation $(notdir $<)'" \
-		--output $@ $(XS3PPATH) $<
+	mkdir -p $(dir $@)diagrams
+	java -jar $(XSDVIPATH) $< -rootNodeName all -oneNodeOnly -outputPath $(dir $@)diagrams
+	xsltproc --nonet --param title "'Schema documentation $(notdir $<)'" --output $@ $(XS3PPATH) $<
 
+# Clean targets
 clean:
 	rm -rf docs xsl xsdvi
 
