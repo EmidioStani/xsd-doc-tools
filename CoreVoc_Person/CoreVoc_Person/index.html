@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:exslt="http://exslt.org/common"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Schema documentation CoreVoc_Person.xsd</title><meta charset="UTF-8"></meta><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"></link><style type="text/css">
+
+
+nav, section {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+
+/*dl {
+  display: grid;
+  grid-template-columns: max-content auto; }
+  dl dt p, dl dd p {
+    margin-top: 0; }
+  dl dt {
+    grid-column-start: 1; }
+  dl dd {
+    grid-column-start: 2; }
+*/
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4em;
+  color: -internal-root-color;
+  background-color: #ffffff; }
+  body main {
+    margin: 0 3em 0 6em; }
+  body main {
+    margin: 0; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.3; }
+
+
+body {
+  margin-left: 270px;
+  margin-right: 2em; }
+
+main {
+  padding-left: 4em;
+  padding-right: 2em; }
+
+.title-section{
+  padding-left: 4em;
+  padding-top: 2em; }
+
+
+
+
+
+h2 p {
+  display: inline; }
+
+
+
+/* Navigation*/
+#toc {
+  font-weight: 400; }
+  #toc a {
+   color: black;
+   text-decoration-color: black; }
+  #toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #toc ul li a {
+      padding: 5px 10px; }
+    #toc ul a {
+      text-decoration: none;
+      display: block; }
+      #toc ul a:hover {
+        box-shadow: none;
+        color: black; }
+  #toc .h2 {
+    padding-left: 30px; }
+  #toc .h3 {
+    padding-left: 50px; }
+  #toc .toc-active, #toc li:hover {
+    background: #f7f7f7;
+    box-shadow: inset -5px 0px 10px -5px #f7f7f7 !important; }
+    #toc .toc-active a, #toc li:hover a {
+      color: black; }
+  @media print {
+    #toc .toc-active, #toc li:hover {
+      background: white;
+      box-shadow: none !important; }
+    #toc li:hover a {
+      color: black; } }
+  @media screen and (max-width: 768px) {
+    #toc {
+      padding: 0 1.5em;
+      overflow: visible; } }
+  #toc .toc-active,
+  #toc li:hover {
+    box-shadow: 0px 1px 0px 0px black !important;
+    background: none; }
+  #toc li:before {
+    content: " ";
+    display: none; }
+
+nav {
+  line-height: 1.2em; }
+  @media screen and (min-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 270px;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0 0 0 0px;
+      background-color: #fefefe; } }
+  @media print {
+    nav {
+      position: relative;
+      width: auto;
+      font-size: 0.9em;
+      overflow: auto;
+      padding: 0;
+      margin-right: 0;
+      background-color: white; } }
+#toggle {
+  margin-left: -4em;
+  margin-top: -2em; }
+  @media screen and (min-width: 768px) {
+    #toggle {
+      position: fixed;
+      height: 100%;
+      width: 20px;
+      font-weight: bold;
+      background-color: #d8e4ff;
+      color: black !important;
+      cursor: pointer;
+      z-index: 100; }
+      #toggle span {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%); } }
+  @media screen and (max-width: 768px) {
+    #toggle {
+      display: none; } }
+  @media print {
+    #toggle {
+      display: none; } }
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 360px; }
+  .rule.toc {
+    display: none; }
+  h1.toc-contents {
+    margin-top: 1em; }
+  ul#toc-list {
+    padding: 0;
+    margin: 0; } }
+
+
+ul, ol {
+  margin-left: 2em; }
+
+#toc-list ul {
+  margin-bottom: 0.25em; }
+
+#toc-list ol li {
+  list-style-type: none; }
+
+
+/* XS3P specific CSS */
+body {
+    background-color: #FFF;
+    
+}
+
+.nav > li.active {
+    background-color: #FFF;
+}
+.nav > li > a:hover {
+   
+    background-color: rgb(0,0,0, 0.05);
+}
+
+.nav-sub-item > a {
+    padding-left: 30px !important;
+}
+
+
+.nav-sub-item strong {
+      font-weight: normal; }
+
+//.nav-list-elements
+.nav {
+   //background-color: #efe;
+   background-color: #e4ecff;
+}
+
+.xs3p-sidenav {
+    //background-color: #efe;
+    background-color: #e4ecff;
+}
+
+code {
+    color: #333;
+}
+
+a.name {
+    padding-top: 65px;
+}
+
+a:not([href]) {
+   color:#1c476c;
+}
+
+a:not([href]):hover {
+  text-decoration: none;
+}
+
+
+h3.xs3p-subsection-heading {
+    margin-bottom: 30px;
+}
+
+section, #top {
+    margin-top: -65px;
+    padding-top: 65px;
+}
+
+pre {
+    padding: 5px;
+}
+
+.xs3p-in-panel-table {
+    margin-bottom: 0px;
+}
+
+.xs3p-collapse-button {
+    font-size: 8pt;
+}
+.panel-heading .xs3p-panel-title:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: left;
+    color: grey;
+    margin-right: 10px;
+}
+.panel-heading .xs3p-panel-title.collapsed:after {
+    content: "\e080";
+}
+.panel-info > .panel-heading .xs3p-panel-title:after {
+    color: white;
+}
+.xs3p-panel-help {
+    color: #888888;
+    cursor: pointer;
+}
+
+.panel-group {
+    margin-bottom: 20px;
+}
+
+.btn-doc {
+    padding: 0px;
+    border: 0px none;
+    background: none repeat scroll 0% 0% transparent;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.unpre {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    white-space: normal;
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.popover {
+    max-width: 400px;
+}
+
+// Syntax highlighting
+.codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
+.codehilite .c   {color: #999;}
+.codehilite .cs  {color: #999; font-style: italic;}
+.codehilite .nt  {color: #2F6F9F;}
+.codehilite .nn  {color: #39B3D7;}
+.codehilite .na  {color: #47A447;}
+.codehilite .s   {color: #D2322D;}
+.codehilite a       {color: inherit !important; text-decoration: underline !important;}
+.codehilite a:hover {opacity: 0.7 !important;}
+
+dl {
+  margin-bottom: 10px;
+}
+
+dt {
+	font-weight: normal;
+
+	margin-bottom: 10px;
+}
+
+dt.header{
+	font-weight: 700;
+}
+
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+dd.header{
+	font-weight: 700;
+}
+
+dd ul {
+	margin-left: 0em;
+}
+
+.bs-callout {
+   padding: 20px;
+   padding-top: 10px;
+   padding-bottom: 5px;
+   margin: 20px 0;
+   border: 1px solid #eee;
+   border-left-width: 5px;
+   border-radius: 3px;
+}
+.bs-callout-danger {
+   border-left-color: #d9534f;
+}
+.bs-callout-warning {
+   border-left-color: #f0ad4e;
+}
+.bs-callout-info {
+   border-left-color: #5bc0de;
+}
+.bs-callout h4 {
+   margin-top: 0;
+   margin-bottom: 5px;
+}
+.bs-callout-danger h4 {
+   color: #d9534f;
+}
+.bs-callout-warning h4 {
+   color: #f0ad4e;
+}
+.bs-callout-info h4 {
+   color: black;
+   font-size: 11pt;
+}
+
+
+      </style><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+               //Import JQuery, required for Bootstrap
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js">
+               // Import Bootstrap JS code
+            </script><script src="https://cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js">
+              // Import Markdown converter for comments processing
+            </script></head><body lang="en" xml:lang="en"><div class="title-section"><div id="toggle"><span>&lt;</span></div><div class="modal fade " id="id1-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id1-label">Element Id</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id1-hidden"><div class="hidden" id="id1-hidden-doc-raw">
+                        A reference in the form of a Uniform Resource Identifier to the Jurisdiction.
+                    </div><div class="xs3p-doc" id="id1-hidden-doc"> </div></div></div></div><div class="modal fade " id="id2-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id2-label">Element JurisdictionName</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id2-hidden"><div class="hidden" id="id2-hidden-doc-raw">
+                        A string of characters that represents a Jurisdiction.
+                    </div><div class="xs3p-doc" id="id2-hidden-doc"> </div></div></div></div><div class="modal fade " id="id3-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id3-label">Element AlternativeName</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id3-hidden"><div class="hidden" id="id3-hidden-doc-raw">
+                                Any name by which a Person is known, other than their full name.
+                            </div><div class="xs3p-doc" id="id3-hidden-doc"> </div></div></div></div><div class="modal fade " id="id4-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id4-label">Element BirthName</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id4-hidden"><div class="hidden" id="id4-hidden-doc-raw">
+                                Full name of the Person given upon their birth.
+                            </div><div class="xs3p-doc" id="id4-hidden-doc"> </div></div></div></div><div class="modal fade " id="id5-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id5-label">Element Citizenship</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id5-hidden"><div class="hidden" id="id5-hidden-doc-raw">
+                                The Jurisdiction that has conferred citizenship rights on the Person such as the right to vote, to receive certain protection from the community or the issuance of a passport.
+                            </div><div class="xs3p-doc" id="id5-hidden-doc"> </div></div></div></div><div class="modal fade " id="id6-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id6-label">Element ContactPoint</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id6-hidden"><div class="hidden" id="id6-hidden-doc-raw">
+                                The main contact information of the resource.
+                            </div><div class="xs3p-doc" id="id6-hidden-doc"> </div></div></div></div><div class="modal fade " id="id7-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id7-label">Element CountryOfBirth</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id7-hidden"><div class="hidden" id="id7-hidden-doc-raw">
+                                The country in which the Person was born.
+                            </div><div class="xs3p-doc" id="id7-hidden-doc"> </div></div></div></div><div class="modal fade " id="id8-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id8-label">Element CountryOfDeath</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id8-hidden"><div class="hidden" id="id8-hidden-doc-raw">
+                                The country in which the Person died.
+                            </div><div class="xs3p-doc" id="id8-hidden-doc"> </div></div></div></div><div class="modal fade " id="id9-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id9-label">Element DateOfBirth</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id9-hidden"><div class="hidden" id="id9-hidden-doc-raw">
+                                The point in time on which the Person was born.
+                            </div><div class="xs3p-doc" id="id9-hidden-doc"> </div></div></div></div><div class="modal fade " id="id10-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id10-label">Element DateOfDeath</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id10-hidden"><div class="hidden" id="id10-hidden-doc-raw">
+                                The point in time on which the Person died.
+                            </div><div class="xs3p-doc" id="id10-hidden-doc"> </div></div></div></div><div class="modal fade " id="id11-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id11-label">Element Domicile</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id11-hidden"><div class="hidden" id="id11-hidden-doc-raw">
+                                The place that the Person treats as permanent home.
+                            </div><div class="xs3p-doc" id="id11-hidden-doc"> </div></div></div></div><div class="modal fade " id="id12-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id12-label">Element FamilyName</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id12-hidden"><div class="hidden" id="id12-hidden-doc-raw">
+                                The hereditary surname of a family.
+                            </div><div class="xs3p-doc" id="id12-hidden-doc"> </div></div></div></div><div class="modal fade " id="id13-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id13-label">Element FullName</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id13-hidden"><div class="hidden" id="id13-hidden-doc-raw">
+                                The complete name of the Person as one string.
+                            </div><div class="xs3p-doc" id="id13-hidden-doc"> </div></div></div></div><div class="modal fade " id="id14-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id14-label">Element Gender</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id14-hidden"><div class="hidden" id="id14-hidden-doc-raw">
+                                The identities, expressions and societal roles of the Person.
+                            </div><div class="xs3p-doc" id="id14-hidden-doc"> </div></div></div></div><div class="modal fade " id="id15-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id15-label">Element GivenName</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id15-hidden"><div class="hidden" id="id15-hidden-doc-raw">
+                                The name(s) that identify the Person within a family with a common surname.
+                            </div><div class="xs3p-doc" id="id15-hidden-doc"> </div></div></div></div><div class="modal fade " id="id16-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id16-label">Element IdentifierPerson</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id16-hidden"><div class="hidden" id="id16-hidden-doc-raw">
+                                The unambiguous structured reference to the Person.
+                            </div><div class="xs3p-doc" id="id16-hidden-doc"> </div></div></div></div><div class="modal fade " id="id17-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id17-label">Element MatronymicName</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id17-hidden"><div class="hidden" id="id17-hidden-doc-raw">
+                                Name based on the given name of the Person's mother.
+                            </div><div class="xs3p-doc" id="id17-hidden-doc"> </div></div></div></div><div class="modal fade " id="id18-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id18-label">Element PatronymicName</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id18-hidden"><div class="hidden" id="id18-hidden-doc-raw">
+                                Name based on the given name of the Person's father.
+                            </div><div class="xs3p-doc" id="id18-hidden-doc"> </div></div></div></div><div class="modal fade " id="id19-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id19-label">Element PlaceOfBirth</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id19-hidden"><div class="hidden" id="id19-hidden-doc-raw">
+                                The Location where the Person was born.
+                            </div><div class="xs3p-doc" id="id19-hidden-doc"> </div></div></div></div><div class="modal fade " id="id20-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id20-label">Element PlaceOfDeath</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id20-hidden"><div class="hidden" id="id20-hidden-doc-raw">
+                                The Location where the Person died.
+                            </div><div class="xs3p-doc" id="id20-hidden-doc"> </div></div></div></div><div class="modal fade " id="id21-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id21-label">Element Residency</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id21-hidden"><div class="hidden" id="id21-hidden-doc-raw">
+                                Jurisdiction where the Person has their dwelling.
+                            </div><div class="xs3p-doc" id="id21-hidden-doc"> </div></div></div></div><div class="modal fade " id="id22-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id22-label">Element Sex</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id22-hidden"><div class="hidden" id="id22-hidden-doc-raw">
+                                The organism's biological sex.
+                            </div><div class="xs3p-doc" id="id22-hidden-doc"> </div></div></div></div><h1><a id="top">Schema documentation CoreVoc_Person.xsd</a></h1><section id="SectionSchemaProperties"><h2><a id="SchemaProperties">Schema Document Properties</a></h2><dl class="dl-horizontal"><dt class="header"><a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a></dt><dd class=""><span class="targetNS">https://data.europa.eu/m8g/xsd</span></dd><dt class="header">Version</dt><dd class="">2.1.1</dd><dt class="header">Element and Attribute Namespaces</dt><dd class=""><ul><li>Global element and attribute declarations belong to this schema's target namespace.</li><li>By default, local element declarations belong to this schema's target namespace.</li><li>By default, local attribute declarations have no namespace.</li></ul></dd><dt class="header">Schema Composition</dt><dd class=""><ul><li>This schema includes components from the following schema document(s):<ul><li>../CoreVoc_Common/CoreVoc_CommonTypes.xsd</li><li>../CoreVoc_Aggregat/CoreVoc_Aggregat.xsd</li></ul></li></ul></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-id23"><div class="hidden" id="id23-doc-raw">Core Person Vocabulary</div><div class="xs3p-doc" id="id23-doc"> </div></div><div class="annotation appinfo"><h4>Application Data</h4>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:title&gt; <div class="fakeclass3" style="margin-left: 3em">Core Person Vocabulary</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:title&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:description&gt; <div class="fakeclass3" style="margin-left: 3em">This XML schema describes the Core Person Vocabulary as part of SEMIC Core Vocabularies .</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:description&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:creator&gt; <div class="fakeclass3" style="margin-left: 3em">Emidio Stani (PwC Belgium)</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:creator&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:creator&gt; <div class="fakeclass3" style="margin-left: 3em">Ine Weyts (PwC Belgium)</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:creator&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:creator&gt; <div class="fakeclass3" style="margin-left: 3em">Wolfgang Keber (DIaLOGIKa GmbH)</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:creator&gt;</code>  
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:contributor&gt; <div class="fakeclass3" style="margin-left: 3em">Pavlina Fragkou (European Commission)</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:contributor&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:contributor&gt; <div class="fakeclass3" style="margin-left: 3em">Anastasia Sofou (Trasys International)</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:contributor&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:contributor&gt; <div class="fakeclass3" style="margin-left: 3em">Kristina Hector (DIaLOGIKa GmbH)</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:contributor&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:contributor&gt; <div class="fakeclass3" style="margin-left: 3em">Patrick Plewka (DIaLOGIKa GmbH)</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:contributor&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:licence&gt; <div class="fakeclass3" style="margin-left: 3em">Licensed under the CC BY 4.0</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:licence&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:rightsHolder&gt; <div class="fakeclass3" style="margin-left: 3em">European Union</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:rightsHolder&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:copyright&gt; <div class="fakeclass3" style="margin-left: 3em">Copyright (C) European Union, 2024</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:copyright&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:status&gt; <div class="fakeclass3" style="margin-left: 3em">In progress</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:status&gt;</code>
+            <code class="test">&lt;<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:created&gt; <div class="fakeclass3" style="margin-left: 3em">2024-10-15</div>&lt;/<a href="#ns_dcterms" title="Find out namespace of 'dcterms' prefix">dcterms</a>:created&gt;</code>
+        <br></br></div></dd></dl><h4>Declared Namespaces:</h4><dl class="dl-horizontal"><dt class="header">Prefix</dt><dd class="header">Namespace</dd><dt class=""><a id="ns_">Default namespace</a></dt><dd class=""><span class="targetNS">https://data.europa.eu/m8g/xsd</span></dd><dt class=""><a id="ns_xml">xml</a></dt><dd class="">http://www.w3.org/XML/1998/namespace</dd><dt class=""><a id="ns_sawsdl">sawsdl</a></dt><dd class="">http://www.w3.org/ns/sawsdl</dd><dt class=""><a id="ns_dcterms">dcterms</a></dt><dd class="">http://purl.org/dc/elements/1.1/</dd><dt class=""><a id="ns_xs">xs</a></dt><dd class="">http://www.w3.org/2001/XMLSchema</dd></dl><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:schema</span> <span class="na">targetNamespace=</span><span class="s">"https://data.europa.eu/m8g/xsd"</span> <span class="na">elementFormDefault=</span><span class="s">"qualified"</span> <span class="na">attributeFormDefault=</span><span class="s">"unqualified"</span> <span class="na">version=</span><span class="s">"2.1.1"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:include</span> <span class="na">schemaLocation=</span><span class="s">"../CoreVoc_Common/CoreVoc_CommonTypes.xsd"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:include</span> <span class="na">schemaLocation=</span><span class="s">"../CoreVoc_Aggregat/CoreVoc_Aggregat.xsd"</span><span class="nt">/&gt;</span>
+<span class="scContent">...</span>
+<span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:schema&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaElements"><h2><a id="SchemaElements">Elements</a></h2><h3 class="xs3p-subsection-heading">Element: <a id="element_BirthName"></a><strong>BirthName</strong></h3><object data="diagrams/BirthName.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;BirthName&gt;</span> <span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span> <span class="nt">&lt;/BirthName&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"BirthName"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Citizenship"></a><strong>Citizenship</strong></h3><object data="diagrams/Citizenship.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='Jump to "JurisdictionType" type definition.' href="#type_JurisdictionType">JurisdictionType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;Citizenship</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a title='Jump to "Id" element declaration.' href="#element_Id">Id</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Id" element declaration.' href="#element_Id">Id</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id1-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "JurisdictionName" element declaration.' href="#element_JurisdictionName">JurisdictionName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "JurisdictionName" element declaration.' href="#element_JurisdictionName">JurisdictionName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id2-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/Citizenship&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"Citizenship"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='Jump to "JurisdictionType" type definition.' href="#type_JurisdictionType">JurisdictionType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_CountryOfBirth"></a><strong>CountryOfBirth</strong></h3><object data="diagrams/CountryOfBirth.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;CountryOfBirth&gt;</span> <span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span> <span class="nt">&lt;/CountryOfBirth&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"CountryOfBirth"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_CountryOfDeath"></a><strong>CountryOfDeath</strong></h3><object data="diagrams/CountryOfDeath.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;CountryOfDeath&gt;</span> <span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span> <span class="nt">&lt;/CountryOfDeath&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"CountryOfDeath"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_DateOfBirth"></a><strong>DateOfBirth</strong></h3><object data="diagrams/DateOfBirth.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"GenericDateType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;GenericDateType&quot; type definition could not be found.');">GenericDateType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;DateOfBirth&gt;</span> <span class="type"><a title='"GenericDateType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;GenericDateType&quot; type definition could not be found.');">GenericDateType</a></span> <span class="nt">&lt;/DateOfBirth&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"DateOfBirth"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"GenericDateType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;GenericDateType&quot; type definition could not be found.');">GenericDateType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_DateOfDeath"></a><strong>DateOfDeath</strong></h3><object data="diagrams/DateOfDeath.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"GenericDateType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;GenericDateType&quot; type definition could not be found.');">GenericDateType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;DateOfDeath&gt;</span> <span class="type"><a title='"GenericDateType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;GenericDateType&quot; type definition could not be found.');">GenericDateType</a></span> <span class="nt">&lt;/DateOfDeath&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"DateOfDeath"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"GenericDateType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;GenericDateType&quot; type definition could not be found.');">GenericDateType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Domicile"></a><strong>Domicile</strong></h3><object data="diagrams/Domicile.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"AddressType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AddressType&quot; type definition could not be found.');">AddressType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;Domicile&gt;</span> <span class="type"><a title='"AddressType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AddressType&quot; type definition could not be found.');">AddressType</a></span> <span class="nt">&lt;/Domicile&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"Domicile"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"AddressType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AddressType&quot; type definition could not be found.');">AddressType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_FamilyName"></a><strong>FamilyName</strong></h3><object data="diagrams/FamilyName.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;FamilyName&gt;</span> <span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span> <span class="nt">&lt;/FamilyName&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"FamilyName"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_FullName"></a><strong>FullName</strong></h3><object data="diagrams/FullName.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;FullName&gt;</span> <span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span> <span class="nt">&lt;/FullName&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"FullName"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Gender"></a><strong>Gender</strong></h3><object data="diagrams/Gender.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;Gender&gt;</span> <span class="type"><a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/Gender&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"Gender"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_GivenName"></a><strong>GivenName</strong></h3><object data="diagrams/GivenName.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;GivenName&gt;</span> <span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span> <span class="nt">&lt;/GivenName&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"GivenName"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Id"></a><strong>Id</strong></h3><object data="diagrams/Id.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:anyURI</span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "JurisdictionType" type definition.' href="#type_JurisdictionType">JurisdictionType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;Id&gt;</span> <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:anyURI</span> <span class="nt">&lt;/Id&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"Id"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:anyURI</span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_IdentifierPerson"></a><strong>IdentifierPerson</strong></h3><object data="diagrams/IdentifierPerson.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"IdentifierType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;IdentifierType&quot; type definition could not be found.');">IdentifierType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;IdentifierPerson&gt;</span> <span class="type"><a title='"IdentifierType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;IdentifierType&quot; type definition could not be found.');">IdentifierType</a></span> <span class="nt">&lt;/IdentifierPerson&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"IdentifierPerson"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"IdentifierType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;IdentifierType&quot; type definition could not be found.');">IdentifierType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_JurisdictionName"></a><strong>JurisdictionName</strong></h3><object data="diagrams/JurisdictionName.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "JurisdictionType" type definition.' href="#type_JurisdictionType">JurisdictionType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;JurisdictionName&gt;</span> <span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span> <span class="nt">&lt;/JurisdictionName&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"JurisdictionName"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_MatronymicName"></a><strong>MatronymicName</strong></h3><object data="diagrams/MatronymicName.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;MatronymicName&gt;</span> <span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span> <span class="nt">&lt;/MatronymicName&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"MatronymicName"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_PatronymicName"></a><strong>PatronymicName</strong></h3><object data="diagrams/PatronymicName.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;PatronymicName&gt;</span> <span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span> <span class="nt">&lt;/PatronymicName&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"PatronymicName"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"TextType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;TextType&quot; type definition could not be found.');">TextType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Person"></a><strong>Person</strong></h3><object data="diagrams/Person.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;Person</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a title='"AgentType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AgentType&quot; type definition could not be found.');">AgentType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a title='"AlternativeName" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AlternativeName&quot; element declaration could not be found.');">AlternativeName</a>&gt;</span> ... <span class="nt">&lt;/<a title='"AlternativeName" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AlternativeName&quot; element declaration could not be found.');">AlternativeName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id3-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "BirthName" element declaration.' href="#element_BirthName">BirthName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "BirthName" element declaration.' href="#element_BirthName">BirthName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id4-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Citizenship" element declaration.' href="#element_Citizenship">Citizenship</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Citizenship" element declaration.' href="#element_Citizenship">Citizenship</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id5-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='"ContactPoint" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;ContactPoint&quot; element declaration could not be found.');">ContactPoint</a>&gt;</span> ... <span class="nt">&lt;/<a title='"ContactPoint" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;ContactPoint&quot; element declaration could not be found.');">ContactPoint</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id6-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "CountryOfBirth" element declaration.' href="#element_CountryOfBirth">CountryOfBirth</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "CountryOfBirth" element declaration.' href="#element_CountryOfBirth">CountryOfBirth</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id7-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "CountryOfDeath" element declaration.' href="#element_CountryOfDeath">CountryOfDeath</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "CountryOfDeath" element declaration.' href="#element_CountryOfDeath">CountryOfDeath</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id8-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "DateOfBirth" element declaration.' href="#element_DateOfBirth">DateOfBirth</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "DateOfBirth" element declaration.' href="#element_DateOfBirth">DateOfBirth</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id9-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "DateOfDeath" element declaration.' href="#element_DateOfDeath">DateOfDeath</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "DateOfDeath" element declaration.' href="#element_DateOfDeath">DateOfDeath</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id10-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Domicile" element declaration.' href="#element_Domicile">Domicile</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Domicile" element declaration.' href="#element_Domicile">Domicile</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id11-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "FamilyName" element declaration.' href="#element_FamilyName">FamilyName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "FamilyName" element declaration.' href="#element_FamilyName">FamilyName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id12-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "FullName" element declaration.' href="#element_FullName">FullName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "FullName" element declaration.' href="#element_FullName">FullName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id13-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Gender" element declaration.' href="#element_Gender">Gender</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Gender" element declaration.' href="#element_Gender">Gender</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id14-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "GivenName" element declaration.' href="#element_GivenName">GivenName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "GivenName" element declaration.' href="#element_GivenName">GivenName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id15-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "IdentifierPerson" element declaration.' href="#element_IdentifierPerson">IdentifierPerson</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "IdentifierPerson" element declaration.' href="#element_IdentifierPerson">IdentifierPerson</a>&gt;</span> <span class="cs">[0 ..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id16-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "MatronymicName" element declaration.' href="#element_MatronymicName">MatronymicName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "MatronymicName" element declaration.' href="#element_MatronymicName">MatronymicName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id17-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "PatronymicName" element declaration.' href="#element_PatronymicName">PatronymicName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "PatronymicName" element declaration.' href="#element_PatronymicName">PatronymicName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id18-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "PlaceOfBirth" element declaration.' href="#element_PlaceOfBirth">PlaceOfBirth</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "PlaceOfBirth" element declaration.' href="#element_PlaceOfBirth">PlaceOfBirth</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id19-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "PlaceOfDeath" element declaration.' href="#element_PlaceOfDeath">PlaceOfDeath</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "PlaceOfDeath" element declaration.' href="#element_PlaceOfDeath">PlaceOfDeath</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id20-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Residency" element declaration.' href="#element_Residency">Residency</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Residency" element declaration.' href="#element_Residency">Residency</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id21-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Sex" element declaration.' href="#element_Sex">Sex</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Sex" element declaration.' href="#element_Sex">Sex</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id22-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/Person&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"Person"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_PlaceOfBirth"></a><strong>PlaceOfBirth</strong></h3><object data="diagrams/PlaceOfBirth.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;PlaceOfBirth&gt;</span> <span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span> <span class="nt">&lt;/PlaceOfBirth&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"PlaceOfBirth"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_PlaceOfDeath"></a><strong>PlaceOfDeath</strong></h3><object data="diagrams/PlaceOfDeath.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;PlaceOfDeath&gt;</span> <span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span> <span class="nt">&lt;/PlaceOfDeath&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"PlaceOfDeath"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"LocationType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;LocationType&quot; type definition could not be found.');">LocationType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Residency"></a><strong>Residency</strong></h3><object data="diagrams/Residency.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='Jump to "JurisdictionType" type definition.' href="#type_JurisdictionType">JurisdictionType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;Residency</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a title='Jump to "Id" element declaration.' href="#element_Id">Id</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Id" element declaration.' href="#element_Id">Id</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id1-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "JurisdictionName" element declaration.' href="#element_JurisdictionName">JurisdictionName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "JurisdictionName" element declaration.' href="#element_JurisdictionName">JurisdictionName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id2-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/Residency&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"Residency"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='Jump to "JurisdictionType" type definition.' href="#type_JurisdictionType">JurisdictionType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Element: <a id="element_Sex"></a><strong>Sex</strong></h3><object data="diagrams/Sex.svg" type="image/svg+xml"></object><dl class="dl-horizontal"><dt class="header">Type</dt><dd class=""><span class="type"><a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span></dd><dt class="header">Used By</dt><dd class=""><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;Sex&gt;</span> <span class="type"><a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span> <span class="nt">&lt;/Sex&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">name=</span><span class="s">"Sex"</span> <span class="na">type=</span><span class="s">"<span class="type"><a title='"CodeType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;CodeType&quot; type definition could not be found.');">CodeType</a></span>"</span><span class="nt">/&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaComplexTypes"><h2><a id="SchemaComplexTypes">Complex Types</a></h2><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_FoafPersonType"></a><strong>FoafPersonType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a title='"AgentType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AgentType&quot; type definition could not be found.');">AgentType</a></span> &lt; <strong>FoafPersonType</strong> (by extension)</dd><dt class="header">Sub-types:</dt><dd class=""><ul><li><span class="type"><a title='Jump to "PersonType" type definition.' href="#type_PersonType">PersonType</a></span> (by extension)</li></ul></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-id24"><div class="hidden" id="id24-doc-raw">
+                The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. 
+            </div><div class="xs3p-doc" id="id24-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a title='"AgentType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AgentType&quot; type definition could not be found.');">AgentType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexType</span> <span class="na">name=</span><span class="s">"FoafPersonType"</span> <span class="na">modelReference=</span><span class="s">"http://xmlns.com/foaf/0.1/Person"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a title='"AgentType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AgentType&quot; type definition could not be found.');">AgentType</a></span>"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexContent&gt;</span>
+<span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_JurisdictionType"></a><strong>JurisdictionType</strong></h3><dl class="dl-horizontal"><dt class="header">Used By</dt><dd class=""><a title='Jump to "Citizenship" element declaration.' href="#element_Citizenship">Citizenship</a>, <a title='Jump to "Residency" element declaration.' href="#element_Residency">Residency</a></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-id25"><div class="hidden" id="id25-doc-raw">
+                "The limits or territory within which authority may be exercised. The extent or range of judicial, law enforcement, or other authority.
+For this entity the following properties are defined: id , name"
+            </div><div class="xs3p-doc" id="id25-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a title='Jump to "Id" element declaration.' href="#element_Id">Id</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Id" element declaration.' href="#element_Id">Id</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id1-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "JurisdictionName" element declaration.' href="#element_JurisdictionName">JurisdictionName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "JurisdictionName" element declaration.' href="#element_JurisdictionName">JurisdictionName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id2-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexType</span> <span class="na">name=</span><span class="s">"JurisdictionType"</span> <span class="na">modelReference=</span><span class="s">"http://purl.org/dc/terms/Jurisdiction"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:sequence</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "Id" element declaration.' href="#element_Id">Id</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://purl.org/dc/terms/identifier"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "JurisdictionName" element declaration.' href="#element_JurisdictionName">JurisdictionName</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/2000/01/rdf-schema#label"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:sequence&gt;</span>
+<span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_PersonType"></a><strong>PersonType</strong></h3><h4>Type hierarchy:</h4><dl class="dl-horizontal"><dt class="header">Super-types:</dt><dd class=""><span class="type"><a title='"AgentType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AgentType&quot; type definition could not be found.');">AgentType</a></span> &lt; <span class="type"><a title='Jump to "FoafPersonType" type definition.' href="#type_FoafPersonType">FoafPersonType</a></span> (by extension) &lt; <strong>PersonType</strong> (by extension)</dd></dl><dl class="dl-horizontal"><dt class="header">Used By</dt><dd class=""><a title='Jump to "Person" element declaration.' href="#element_Person">Person</a></dd></dl><dl class="dl-horizontal"><dt>Documentation</dt><dd><div class="annotation documentation" id="wdoc-id26"><div class="hidden" id="id26-doc-raw">
+	            A individual human being who may be dead or alive, but not imaginary
+	        </div><div class="xs3p-doc" id="id26-doc"> </div></div></dd></dl><div class="bs-callout bs-callout-info"><h4>XML Instance Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
+         &lt;ul&gt;
+         &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
+         &lt;li&gt;Model group information are shown in gray, e.g. Start Choice ... End Choice.&lt;/li&gt;
+         &lt;li&gt;For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in &lt;strong&gt;bold&lt;/strong&gt;&lt;/li&gt;
+         &lt;li&gt;If an element/attribute has a fixed value, the fixed value is shown in green.&lt;/li&gt;
+         &lt;li&gt;More stuff&lt;/li&gt;
+         &lt;li&gt;If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked.&lt;/li&gt;
+         &lt;/ul&gt;
+      "><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!-- '<span class="type"><a title='"AgentType" type definition could not be found.' href="javascript:void(0)" onclick="alert('&quot;AgentType&quot; type definition could not be found.');">AgentType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</span>
+   <span class="nt">&lt;<a title='"AlternativeName" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AlternativeName&quot; element declaration could not be found.');">AlternativeName</a>&gt;</span> ... <span class="nt">&lt;/<a title='"AlternativeName" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AlternativeName&quot; element declaration could not be found.');">AlternativeName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id3-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "BirthName" element declaration.' href="#element_BirthName">BirthName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "BirthName" element declaration.' href="#element_BirthName">BirthName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id4-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Citizenship" element declaration.' href="#element_Citizenship">Citizenship</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Citizenship" element declaration.' href="#element_Citizenship">Citizenship</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id5-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='"ContactPoint" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;ContactPoint&quot; element declaration could not be found.');">ContactPoint</a>&gt;</span> ... <span class="nt">&lt;/<a title='"ContactPoint" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;ContactPoint&quot; element declaration could not be found.');">ContactPoint</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id6-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "CountryOfBirth" element declaration.' href="#element_CountryOfBirth">CountryOfBirth</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "CountryOfBirth" element declaration.' href="#element_CountryOfBirth">CountryOfBirth</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id7-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "CountryOfDeath" element declaration.' href="#element_CountryOfDeath">CountryOfDeath</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "CountryOfDeath" element declaration.' href="#element_CountryOfDeath">CountryOfDeath</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id8-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "DateOfBirth" element declaration.' href="#element_DateOfBirth">DateOfBirth</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "DateOfBirth" element declaration.' href="#element_DateOfBirth">DateOfBirth</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id9-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "DateOfDeath" element declaration.' href="#element_DateOfDeath">DateOfDeath</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "DateOfDeath" element declaration.' href="#element_DateOfDeath">DateOfDeath</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id10-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Domicile" element declaration.' href="#element_Domicile">Domicile</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Domicile" element declaration.' href="#element_Domicile">Domicile</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id11-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "FamilyName" element declaration.' href="#element_FamilyName">FamilyName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "FamilyName" element declaration.' href="#element_FamilyName">FamilyName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id12-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "FullName" element declaration.' href="#element_FullName">FullName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "FullName" element declaration.' href="#element_FullName">FullName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id13-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Gender" element declaration.' href="#element_Gender">Gender</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Gender" element declaration.' href="#element_Gender">Gender</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id14-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "GivenName" element declaration.' href="#element_GivenName">GivenName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "GivenName" element declaration.' href="#element_GivenName">GivenName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id15-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "IdentifierPerson" element declaration.' href="#element_IdentifierPerson">IdentifierPerson</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "IdentifierPerson" element declaration.' href="#element_IdentifierPerson">IdentifierPerson</a>&gt;</span> <span class="cs">[0 ..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id16-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "MatronymicName" element declaration.' href="#element_MatronymicName">MatronymicName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "MatronymicName" element declaration.' href="#element_MatronymicName">MatronymicName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id17-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "PatronymicName" element declaration.' href="#element_PatronymicName">PatronymicName</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "PatronymicName" element declaration.' href="#element_PatronymicName">PatronymicName</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id18-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "PlaceOfBirth" element declaration.' href="#element_PlaceOfBirth">PlaceOfBirth</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "PlaceOfBirth" element declaration.' href="#element_PlaceOfBirth">PlaceOfBirth</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id19-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "PlaceOfDeath" element declaration.' href="#element_PlaceOfDeath">PlaceOfDeath</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "PlaceOfDeath" element declaration.' href="#element_PlaceOfDeath">PlaceOfDeath</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id20-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Residency" element declaration.' href="#element_Residency">Residency</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Residency" element declaration.' href="#element_Residency">Residency</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id21-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+   <span class="nt">&lt;<a title='Jump to "Sex" element declaration.' href="#element_Sex">Sex</a>&gt;</span> ... <span class="nt">&lt;/<a title='Jump to "Sex" element declaration.' href="#element_Sex">Sex</a>&gt;</span> <span class="cs">[0..*]</span> <button type="button" class="btn btn-link btn-doc" data-container="body" data-toggle="modal" data-target="#id22-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
+<span class="nt">&lt;/...&gt;</span>
+</pre></div><div class="bs-callout bs-callout-info"><h4>Schema Component Representation 
+               <span class="xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table below displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexType</span> <span class="na">name=</span><span class="s">"PersonType"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#Person"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexContent</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a title='Jump to "FoafPersonType" type definition.' href="#type_FoafPersonType">FoafPersonType</a></span>"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:sequence</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='"AlternativeName" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;AlternativeName&quot; element declaration could not be found.');">AlternativeName</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://purl.org/dc/terms/alternative"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "BirthName" element declaration.' href="#element_BirthName">BirthName</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#birthName"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "Citizenship" element declaration.' href="#element_Citizenship">Citizenship</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#citizenship"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='"ContactPoint" element declaration could not be found.' href="javascript:void(0)" onclick="alert('&quot;ContactPoint&quot; element declaration could not be found.');">ContactPoint</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://data.europa.eu/m8g/contactPoint"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "CountryOfBirth" element declaration.' href="#element_CountryOfBirth">CountryOfBirth</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#countryOfBirth"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "CountryOfDeath" element declaration.' href="#element_CountryOfDeath">CountryOfDeath</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#countryOfDeath"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "DateOfBirth" element declaration.' href="#element_DateOfBirth">DateOfBirth</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://data.europa.eu/m8g/birthDate"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "DateOfDeath" element declaration.' href="#element_DateOfDeath">DateOfDeath</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://data.europa.eu/m8g/deathDate"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "Domicile" element declaration.' href="#element_Domicile">Domicile</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://data.europa.eu/m8g/domicile"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "FamilyName" element declaration.' href="#element_FamilyName">FamilyName</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://xmlns.com/foaf/0.1/familyName"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "FullName" element declaration.' href="#element_FullName">FullName</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://xmlns.com/foaf/0.1/name"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "Gender" element declaration.' href="#element_Gender">Gender</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://data.europa.eu/m8g/gender"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "GivenName" element declaration.' href="#element_GivenName">GivenName</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://xmlns.com/foaf/0.1/givenName"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "IdentifierPerson" element declaration.' href="#element_IdentifierPerson">IdentifierPerson</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://purl.org/dc/terms/identifier"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "MatronymicName" element declaration.' href="#element_MatronymicName">MatronymicName</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://data.europa.eu/m8g/matronymicName"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "PatronymicName" element declaration.' href="#element_PatronymicName">PatronymicName</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#patronymicName"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "PlaceOfBirth" element declaration.' href="#element_PlaceOfBirth">PlaceOfBirth</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#placeOfBirth"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "PlaceOfDeath" element declaration.' href="#element_PlaceOfDeath">PlaceOfDeath</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#placeOfDeath"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "Residency" element declaration.' href="#element_Residency">Residency</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://www.w3.org/ns/person#residency"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:element</span> <span class="na">ref=</span><span class="s">"<a title='Jump to "Sex" element declaration.' href="#element_Sex">Sex</a>"</span> <span class="na">minOccurs=</span><span class="s">"0"</span> <span class="na">maxOccurs=</span><span class="s">"unbounded"</span> <span class="na">modelReference=</span><span class="s">"http://data.europa.eu/m8g/sex"</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:sequence&gt;</span>
+      <span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:extension&gt;</span>
+   <span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexContent&gt;</span>
+<span class="nt">&lt;/<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:complexType&gt;</span>
+</pre></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><div id="glossary"><h2><a id="Glossary">Glossary</a></h2><p><span class="glossaryTerm"><a id="term_Abstract">Abstract</a> </span>(Applies to complex type definitions and element declarations). An abstract element or complex type cannot used to validate an element instance. If there is a reference to an abstract element, only element declarations that can substitute the abstract element can be used to validate the instance. For references to abstract type definitions, only derived types can be used.</p><p><span class="glossaryTerm"><a id="term_All">All Model Group</a> </span>Child elements can be provided <em>in any order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-all" href="http://www.w3.org/TR/xmlschema-1/#element-all">http://www.w3.org/TR/xmlschema-1/#element-all</a>.</p><p><span class="glossaryTerm"><a id="term_Choice">Choice Model Group</a> </span><em>Only one</em> from the list of child elements and model groups can be provided in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-choice" href="http://www.w3.org/TR/xmlschema-1/#element-choice">http://www.w3.org/TR/xmlschema-1/#element-choice</a>.</p><p><span class="glossaryTerm"><a id="term_CollapseWS">Collapse Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32). Then, collapse contiguous sequences of space characters into single space character, and remove leading and trailing space characters.</p><p><span class="glossaryTerm"><a id="term_ElemBlock">Disallowed Substitutions</a> </span>(Applies to element declarations). If <em>substitution</em> is specified, then <a title="Look up 'substitution group' in glossary" href="#term_SubGroup">substitution group</a> members cannot be used in place of the given element declaration to validate element instances. If <em>derivation methods</em>, e.g. extension, restriction, are specified, then the given element declaration will not validate element instances that have types derived from the element declaration's type using the specified derivation methods. Normally, element instances can override their declaration's type by specifying an <code>xsi:type</code> attribute.</p><p><span class="glossaryTerm"><a id="term_Key">Key Constraint</a> </span>Like <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>, but additionally requires that the specified value(s) must be provided. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_KeyRef">Key Reference Constraint</a> </span>Ensures that the specified value(s) must match value(s) from a <a title="Look up 'Key Constraint' in glossary" href="#term_Key">Key Constraint</a> or <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><p><span class="glossaryTerm"><a id="term_ModelGroup">Model Group</a> </span>Groups together element content, specifying the order in which the element content can occur and the number of times the group of element content may be repeated. See: <a title="http://www.w3.org/TR/xmlschema-1/#Model_Groups" href="http://www.w3.org/TR/xmlschema-1/#Model_Groups">http://www.w3.org/TR/xmlschema-1/#Model_Groups</a>.</p><p><span class="glossaryTerm"><a id="term_Nillable">Nillable</a> </span>(Applies to element declarations). If an element declaration is nillable, instances can use the <code>xsi:nil</code> attribute. The <code>xsi:nil</code> attribute is the boolean attribute, <em>nil</em>, from the <em>http://www.w3.org/2001/XMLSchema-instance</em> namespace. If an element instance has an <code>xsi:nil</code> attribute set to true, it can be left empty, even though its element declaration may have required content.</p><p><span class="glossaryTerm"><a id="term_Notation">Notation</a> </span>A notation is used to identify the format of a piece of data. Values of elements and attributes that are of type, NOTATION, must come from the names of declared notations. See: <a title="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations" href="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations">http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations</a>.</p><p><span class="glossaryTerm"><a id="term_PreserveWS">Preserve Whitespace Policy</a> </span>Preserve whitespaces exactly as they appear in instances.</p><p><span class="glossaryTerm"><a id="term_TypeFinal">Prohibited Derivations</a> </span>(Applies to type definitions). Derivation methods that cannot be used to create sub-types from a given type definition.</p><p><span class="glossaryTerm"><a id="term_TypeBlock">Prohibited Substitutions</a> </span>(Applies to complex type definitions). Prevents sub-types that have been derived using the specified derivation methods from validating element instances in place of the given type definition.</p><p><span class="glossaryTerm"><a id="term_ReplaceWS">Replace Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32).</p><p><span class="glossaryTerm"><a id="term_Sequence">Sequence Model Group</a> </span>Child elements and model groups must be provided <em>in the specified order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-sequence" href="http://www.w3.org/TR/xmlschema-1/#element-sequence">http://www.w3.org/TR/xmlschema-1/#element-sequence</a>.</p><p><span class="glossaryTerm"><a id="term_SubGroup">Substitution Group</a> </span>Elements that are <em>members</em> of a substitution group can be used wherever the <em>head</em> element of the substitution group is referenced.</p><p><span class="glossaryTerm"><a id="term_ElemFinal">Substitution Group Exclusions</a> </span>(Applies to element declarations). Prohibits element declarations from nominating themselves as being able to substitute a given element declaration, if they have types that are derived from the original element's type using the specified derivation methods.</p><p><span class="glossaryTerm"><a id="term_TargetNS">Target Namespace</a> </span>The target namespace identifies the namespace that components in this schema belongs to. If no target namespace is provided, then the schema components do not belong to any namespace.</p><p><span class="glossaryTerm"><a id="term_Unique">Uniqueness Constraint</a> </span>Ensures uniqueness of an element/attribute value, or a combination of values, within a specified scope. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></div><p class="footer">Generated by <a href="https://github.com/unitsml/schemas/blob/master/xsl/xs3p.xsl">xs3p</a> (fork of <a href="http://github.com/bitfehler/xs3p">xs3p</a>)
+                  . Last Modified: <script type="text/javascript">
+<!--
+document.write(document.lastModified);
+// -->
+</script></p></div><br></br><nav><div id="toc"><ul class="nav nav-list xs3p-sidenav"><li><strong><a href="#SchemaProperties">Schema Document Properties</a></strong></li><ul class="nav nav-list nav-list-elements"><li><strong><a href="#SchemaElements">Elements </a></strong></li><li class="nav-sub-item"><a href="#element_BirthName"><strong>BirthName</strong></a></li><li class="nav-sub-item"><a href="#element_Citizenship"><strong>Citizenship</strong></a></li><li class="nav-sub-item"><a href="#element_CountryOfBirth"><strong>CountryOfBirth</strong></a></li><li class="nav-sub-item"><a href="#element_CountryOfDeath"><strong>CountryOfDeath</strong></a></li><li class="nav-sub-item"><a href="#element_DateOfBirth"><strong>DateOfBirth</strong></a></li><li class="nav-sub-item"><a href="#element_DateOfDeath"><strong>DateOfDeath</strong></a></li><li class="nav-sub-item"><a href="#element_Domicile"><strong>Domicile</strong></a></li><li class="nav-sub-item"><a href="#element_FamilyName"><strong>FamilyName</strong></a></li><li class="nav-sub-item"><a href="#element_FullName"><strong>FullName</strong></a></li><li class="nav-sub-item"><a href="#element_Gender"><strong>Gender</strong></a></li><li class="nav-sub-item"><a href="#element_GivenName"><strong>GivenName</strong></a></li><li class="nav-sub-item"><a href="#element_Id"><strong>Id</strong></a></li><li class="nav-sub-item"><a href="#element_IdentifierPerson"><strong>IdentifierPerson</strong></a></li><li class="nav-sub-item"><a href="#element_JurisdictionName"><strong>JurisdictionName</strong></a></li><li class="nav-sub-item"><a href="#element_MatronymicName"><strong>MatronymicName</strong></a></li><li class="nav-sub-item"><a href="#element_PatronymicName"><strong>PatronymicName</strong></a></li><li class="nav-sub-item"><a href="#element_Person"><strong>Person</strong></a></li><li class="nav-sub-item"><a href="#element_PlaceOfBirth"><strong>PlaceOfBirth</strong></a></li><li class="nav-sub-item"><a href="#element_PlaceOfDeath"><strong>PlaceOfDeath</strong></a></li><li class="nav-sub-item"><a href="#element_Residency"><strong>Residency</strong></a></li><li class="nav-sub-item"><a href="#element_Sex"><strong>Sex</strong></a></li></ul><li><strong><a href="#SchemaComplexTypes">Complex Types </a></strong></li><li class="nav-sub-item"><a href="#type_FoafPersonType"><strong>FoafPersonType</strong></a></li><li class="nav-sub-item"><a href="#type_JurisdictionType"><strong>JurisdictionType</strong></a></li><li class="nav-sub-item"><a href="#type_PersonType"><strong>PersonType</strong></a></li><li><strong><a href="#Glossary">Glossary</a></strong></li></ul></div></nav><script>
+               //TOC toggle animation
+               $('#toggle').on('click', function(){
+                  var duration = 400;
+                  if( $('nav').is(':visible') ) {
+                     $('nav').animate({ 'left': '-353px' }, duration, function(){
+                        $('nav').hide();
+                     });
+                     $('body').animate({ 'margin-left': '0' }, duration);
+                     $('#toggle > span').text('>');
+                  }
+                  else {
+                     $('nav').show();
+                     $('nav').animate({ 'left': '0px' }, duration);
+                     $('body').animate({ 'margin-left': '270px' }, duration);
+                     $('#toggle > span').text('<');
+                  }
+               });
+            </script><script>
+
+                  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+                  $(function () { $("[data-toggle='popover']").popover({ trigger: "hover" }); });
+                  
+                  $(function () { $("[data-toggle='modal']").click(function() { return false; })});
+                  
+                  $(function () { $("[data-toggle='modal']").popover({ trigger: "hover", html: true,
+    content: function () {
+        var targetId = $(this).attr('data-target');
+        return $(targetId).html();
+    }}); });
+                  
+    
+                  
+                  var c = new Markdown.Converter();
+                  $('.xs3p-doc').each(function(i, obj) {
+                     var rawDocID = '#' + $(this).attr('id') + '-raw';
+                     var indent = $(rawDocID).html().match("^\\n[\\t ]*");
+                     if (!(indent === null)) {
+                        normalized = $(rawDocID).html().replace(new RegExp(indent[0], "gm"), "\n");
+                     } else {
+                        normalized = $(rawDocID).html();
+                     }
+                     $(this).html(c.makeHtml(normalized));
+                     $(this).find('code,pre').each(function(i, block) {
+                        $(this).html($(this).text());
+                     });
+                  });
+
+                  $(window).scroll(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed" && $(window).height() < $(".xs3p-sidebar").height()) {
+                        var perc = $(window).scrollTop() / $("#xs3p-content").height();
+                        var overflow = $(".xs3p-sidebar").height() + 105 - $(window).height();
+                        $(".xs3p-sidebar").css("top", (65 - Math.round(overflow * perc)) + "px");
+                     }
+                  });
+                  $(window).resize(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed") {
+                        $(".xs3p-sidebar").css("top", "65px");
+                     }
+                  });
+                  </script></body></html>
