@@ -25,6 +25,8 @@ check_dependencies:
 	@which java > /dev/null || { echo "Java is required"; exit 1; }
 	@which $(XSLTPROC) > /dev/null || { echo "xsltproc is required"; exit 1; }
 
+docs: $(DOCS)
+
 # Fetch tools
 .archive/%:
 	mkdir -p $(dir $@)
